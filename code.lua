@@ -303,6 +303,12 @@ local Kill = Misc:Button("Destroy GUI", function()
 
 end)
 
+u2 = Interact.Button.MouseButton1Click:Connect(function()
+	v5.ClosePage(UI, world);
+		if u2 ~= nil then
+			u2:Disconnect();
+		end;
+end);
 if #world.Price:GetChildren() > 0 then
 	world.Price.ImageLabel:Destroy()
 end
