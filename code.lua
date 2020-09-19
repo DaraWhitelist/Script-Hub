@@ -25,6 +25,13 @@ local function farming(area,type)
 		end
 	end
 end
+local function shiny()
+    for _,v in next,game:GetService("Players").LocalPlayer.PlayerGui.UI.Items.Frames.Pets.Items:GetDescendants() do
+        if v:IsA("ImageLabel") and v.Parent and v.Parent.Name == "Items" and v.ItemName.Value ~= "Razorfish" and v.Lock.isLoaded == false then
+            game:GetService("ReplicatedStorage").Events.Server.RequestPetCraft:InvokeServer(v.ItemId.Value)
+        end
+    end
+end
 -- Mining Champion Tab
 local Mining = library:CreateWindow("Mining Champion")
 Mining:Section("- Ore Farm -")
@@ -265,6 +272,15 @@ spawn(function()
     end
 end)]]
 
+Pets:Section("Craft Pets")
+local shine = Pets:Toggle("Auto Shiny", {flag = "AShiny"})
+spawn(function()
+	while wait(1) do
+		if Pets.flags.AShiny then
+			shiny()
+		end
+	end
+end) 
 -- Misc
 local Misc = library:CreateWindow("Misc")
 Misc:Section("--== Other Stuff ==--")
@@ -286,12 +302,7 @@ local Kill = Misc:Button("Destroy GUI", function()
 	game:GetService("CoreGui").ScreenGui:Destroy()
 
 end)
-u2 = Interact.Button.MouseButton1Click:Connect(function()
-	v5.ClosePage(UI, world);
-		if u2 ~= nil then
-			u2:Disconnect();
-		end;
-end);
+
 if #world.Price:GetChildren() > 0 then
 	world.Price.ImageLabel:Destroy()
 end
