@@ -10,7 +10,7 @@ local library = loadstring(game:HttpGet("https://pastebin.com/raw/JsdM2jiP",tR1e
 library.options.underlinecolor = "rainbow"
 
 local function rarity(petName)
-	for _,v in next,game:GetService("Players")["LocalPlayer"]["PlayerGui"]["UI"]["Index"]["PetFrames"]:GetDescendants() do
+	for _,v in next,player["PlayerGui"]["UI"]["Index"]["PetFrames"]:GetDescendants() do
 		if v:IsA("ImageLabel") and v.Parent.Name == "Items" and v.Name == petName then
 			return v.RarityLabel.Text
     	end
@@ -26,7 +26,7 @@ local function farming(area,type)
 	end
 end
 local function shiny()
-    for _,v in next,game:GetService("Players").LocalPlayer.PlayerGui.UI.Items.Frames.Pets.Items:GetDescendants() do
+    for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetDescendants() do
         if v:IsA("ImageLabel") and v.Parent and v.Parent.Name == "Items" and v.ItemName.Value ~= "Razorfish" and v.Lock.isLoaded == false then
             game:GetService("ReplicatedStorage").Events.Server.RequestPetCraft:InvokeServer(v.ItemId.Value)
         end
@@ -34,6 +34,19 @@ local function shiny()
 end
 -- Mining Champion Tab
 local Mining = library:CreateWindow("Mining Champion")
+Mining:Section("-Gold Ore Farm -")
+local FarmOre = Mining:Toggle("Farm Gold Ore", {flag = "G0"})
+spawn(function()
+	while wait(.01) do
+		if Mining.flags.G0 then
+			local args = {
+				[1] = workspace.Resources.Ores.World_1.Center_Ores.VIP
+			}
+		
+			game:GetService("ReplicatedStorage").Events.Server.RequestSwing:InvokeServer(unpack(args))
+		end
+	end
+end)
 Mining:Section("- Ore Farm -")
 local FarmOre = Mining:Toggle("Farm Center Ore", {flag = "center"})
 local FarmOre = Mining:Toggle("Farm All", {flag = "O0"})
@@ -47,7 +60,7 @@ spawn(function()
     while wait(.01) do
         if Mining.flags.center then
             for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"]["Center_Ores"]:GetChildren() do
-                if v.Name and string.match(v.Name,"Ore_"..game:GetService("Players")["LocalPlayer"]["island"].Value) then
+                if v.Name and string.match(v.Name,"Ore_"..player["island"].Value) then
                     for i=1,10 do
                     game:GetService("ReplicatedStorage")["Events"]["Server"]["RequestSwing"]:InvokeServer(v)
                     end
@@ -171,7 +184,8 @@ Pets:Dropdown("Eggs", {location = _G, flag = "Egg", list = {
 	"1M Egg 8K Gems",
 	"Desert Egg 40K Gems",
 	"Jungle Egg 60K Gems",
-	"Ice Egg 200K Gems"
+	"Ice Egg 200K Gems",
+	"Space Egg 450K Gems"
 }
 })
 Pets:Dropdown("#Eggs to Open", {location = _G, flag = "Number", list = {
@@ -187,10 +201,19 @@ local Common = Pets:Toggle("Sell All Common", {flag = "SCommon"})
 local Rare = Pets:Toggle("Sell All Rare", {flag = "SRare"}) 
 local Epic = Pets:Toggle("Sell All Epic", {flag = "SEpic"}) 
 local Ultra = Pets:Toggle("Sell All Ultra", {flag = "SUltra"})
+local choice = Pets:Dropdown("Sell Specific Legendary",{location = _G, flag = "choose", list = {
+    "Parrot",
+	"Anubis",
+	"Rocket",
+	"Ice Wyvern",
+	"The Mummy",
+    }
+})
+local choiceSell = Pets:Toggle("Sell Pet",{flag="SPet"})
 --local Limited = Pets:Toggle("Sell All Limited",{flag = "SLimited"})
 
 local function sell(rare)
-    for _,v in next,game:GetService("Players").LocalPlayer.PlayerGui.UI.Items.Frames.Pets.Items:GetDescendants() do
+    for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetDescendants() do
         if v:IsA("ImageLabel") and v.Parent and v.Parent.Name == "Items" and v.ItemName.Value ~= "Razorfish" and v.Lock.isLoaded == false then
             if string.match(rare,rarity(v.ItemName.Value)) then
                 game:GetService("ReplicatedStorage")["Events"]["Server"]["DeletePet"]:InvokeServer(v.ItemId.Value)
@@ -198,7 +221,22 @@ local function sell(rare)
         end
     end
 end
-
+local function sell2(petName)
+    for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetDescendants() do
+        if v:IsA("ImageLabel") and v.Parent and v.Parent.Name == "Items" and v.ItemName.Value ~= "Razorfish" and v.Lock.isLoaded == false then
+            if v.ItemName.Value==petName then
+                game:GetService("ReplicatedStorage")["Events"]["Server"]["DeletePet"]:InvokeServer(v.ItemId.Value)
+            end
+        end
+    end
+end
+spawn(function()
+	while wait(1) do
+		if Pets.flags.SPet then
+			sell2(_G.choose)
+		end
+	end
+end)
 -- Open Crystals
 spawn(function()
 	while wait(1) do
@@ -224,6 +262,9 @@ spawn(function()
 			end
 			if string.match(_G.Egg,"1M") then
 				oh1 = "1M"
+			end
+			if string.match(_G.Egg,"Space") then
+				oh1 = "7"
 			end
             local oh2 = _G.Number
             game:GetService("ReplicatedStorage")["Events"]["Server"]["BuyEgg"]:InvokeServer(oh1,tonumber(oh2))
@@ -285,6 +326,7 @@ end)
 local Misc = library:CreateWindow("Misc")
 Misc:Section("--== Other Stuff ==--")
 
+
 Misc:Bind("Toggle Key",
 {flag = "Toggle", owo = tR1e, default = Enum.KeyCode.RightControl},
 function()
@@ -295,29 +337,47 @@ data.w:TweenPosition(pos, (library.toggled and 'Out' or 'In'), 'Quad', 0.15, tR1
 wait();
 end
 end)
-
 --/ Destroy GUI \--
 local Kill = Misc:Button("Destroy GUI", function()
 
 	game:GetService("CoreGui").ScreenGui:Destroy()
 
 end)
-
+local x =Exit:Clone()
+x.Parent = game.Workspace
+local price = world.Price.ImageLabel:Clone()
+price.Parent = game.Workspace
 u2 = Interact.Button.MouseButton1Click:Connect(function()
 	v5.ClosePage(UI, world);
 		if u2 ~= nil then
 			u2:Disconnect();
+			world.TextLabel.Text = "World Purchase"
+			price.Parent = world.Price
+			x.Parent = world
+			print("done")
 		end;
 end);
+local Credits = library:CreateWindow("Credits")
+local label = Credits:Label("Script Created By:\nDeidara#2637")
+local label  = Credits:Label("---====Discord Server====---")
+local disc = Credits:Button("Copy Discord Server Link", function()
+
+	setclipboard("https://discord.gg/GpXjWhD")
+
+end)
+if Exit then
+	Exit:Destroy()
+end
 if #world.Price:GetChildren() > 0 then
 	world.Price.ImageLabel:Destroy()
 end
+
 if world.Price.Visible == false then
 	world.Price.Visible = true
 end
-world.Details.Text = "Created By"
-world.Price.Text = "Deidara#2637"
-world.TextLabel.Text = "Mining Champions GUI"
+world.Details.Text = "Join my server"
+world.Price.Text = "link in Credits"
+world.TextLabel.Text = "Stay Updated"
 world.CanClose.Value = true
 Interact.TextLabel.Text = "Enjoy!!"
 v5.DisplayPage(plr, UI, world)
