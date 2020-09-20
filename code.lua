@@ -224,7 +224,7 @@ local choice = Pets:Dropdown("Sell Specific Legendary",{location = _G, flag = "c
 	"The Mummy",
     }
 })
-local choiceSell = Pets:Toggle("Sell Pet",{flag="SPet"})
+local choiceSell = Pets:Toggle("Legendary Sell",{flag="SPet"})
 --local Limited = Pets:Toggle("Sell All Limited",{flag = "SLimited"})
 
 local function sell(rare)
