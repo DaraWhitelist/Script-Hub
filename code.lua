@@ -19,9 +19,7 @@ local function rarity(petName)
 local function farming(area,type)
 	for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"][area]:GetDescendants() do
 		if v.Name and string.match(v.Name,type) then
-			for i=1,6 do
-				game:GetService("ReplicatedStorage")["Events"]["Server"]["RequestSwing"]:InvokeServer(v)
-			end	
+			game:GetService("ReplicatedStorage")["Events"]["Server"]["RequestSwing"]:InvokeServer(v)	
 		end
 	end
 end
@@ -54,7 +52,8 @@ local FarmOre = Mining:Toggle("Farm Starter", {flag = "O1"})
 local FarmOre = Mining:Toggle("Farm Grassland", {flag = "O2"})
 local FarmOre = Mining:Toggle("Farm Desert", {flag = "O3"})
 local FarmOre = Mining:Toggle("Farm Jungle", {flag = "O4"})
-local FarmOre = Mining:Toggle("Farm Frozen", {flag = "05"})
+local FarmOre = Mining:Toggle("Farm Frozen", {flag = "O5"})
+local FarmOre = Mining:Toggle("Farm Space", {flag = "O6"})
 -- AutoFarm
 spawn(function()
     while wait(.01) do
@@ -113,7 +112,15 @@ end)
 spawn(function()
     while wait(.01) do
 		if Mining.flags.O5 then
+			print("yes")
 			farming("Island_5","Ore")
+		end
+	end
+end)
+spawn(function()
+    while wait(.01) do
+		if Mining.flags.O6 then
+			farming("Island_6","Ore")
 		end
 	end
 end)
@@ -124,6 +131,7 @@ local FarmGems = Mining:Toggle("Farm Grassland", {flag = "R2"})
 local FarmGems = Mining:Toggle("Farm Desert", {flag = "R3"})
 local FarmGems = Mining:Toggle("Farm Jungle", {flag = "R4"})
 local FarmGems = Mining:Toggle("Farm Frozen", {flag = "R5"})
+local FarmGems = Mining:Toggle("Farm Space", {flag = "R6"})
 spawn(function()
     while wait(.01) do
         if Mining.flags.R0 then
@@ -168,7 +176,14 @@ end)
 spawn(function()
     while wait(.01) do
 		if Mining.flags.R5 then
-			farming("Island_4","Gem_5")
+			farming("Island_5","Gem_5")
+		end
+	end
+end)
+spawn(function()
+    while wait(.01) do
+		if Mining.flags.R6 then
+			farming("Island_6","Gem_6")
 		end
 	end
 end)
