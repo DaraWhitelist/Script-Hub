@@ -206,9 +206,10 @@ end)
 end)]]
 --Teleports Tab
 local Teleport = library:CreateWindow("Teleports")
+
 local function teleport(num)
-local island = game:GetService("Workspace").Resources.Interaction.Worlds["1"].Islands[num].Exit
-game:GetService("ReplicatedStorage").Events.Server.RequestIslandTeleport:InvokeServer("1","6",island)
+	local island = game:GetService("Workspace").Resources.Interaction.Worlds["1"].Islands[num].Exit
+	game:GetService("ReplicatedStorage").Events.Server.RequestIslandTeleport:InvokeServer("1",num,island)
 end
 
 Teleport:Button("Spawn",function()
