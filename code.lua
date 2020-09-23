@@ -277,10 +277,10 @@ local choiceSell = Pets:Toggle("Legendary Sell",{flag="SPet"})
 --local Limited = Pets:Toggle("Sell All Limited",{flag = "SLimited"})
 
 local function sell(rare)
-    for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetDescendants() do
-        if v:IsA("ImageLabel") and v.Parent and v.Parent.Name == "Items" and v.ItemName.Value ~= "Razorfish" and v.Lock.isLoaded == false then
-			print(rarity(v.ItemName.Value))
+    for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetChildren() do
+        if v:IsA("ImageLabel") and v.ItemName.Value ~= "Razorfish" and v.Lock.isLoaded == false then
 			if string.match(rare,rarity(v.ItemName.Value)) then
+				print("worked",rare)
                 game:GetService("ReplicatedStorage")["Events"]["Server"]["DeletePet"]:InvokeServer(v.ItemId.Value)
             end
         end
