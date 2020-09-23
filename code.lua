@@ -1,4 +1,5 @@
 local player = game.Players.LocalPlayer
+local hum = player.Character.HumanoidRootPart
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local ClientModules = ReplicatedStorage.ClientModules;
 local v5 = require(ClientModules.UI.Utility)
@@ -54,6 +55,7 @@ local FarmOre = Mining:Toggle("Farm Desert", {flag = "O3"})
 local FarmOre = Mining:Toggle("Farm Jungle", {flag = "O4"})
 local FarmOre = Mining:Toggle("Farm Frozen", {flag = "O5"})
 local FarmOre = Mining:Toggle("Farm Space", {flag = "O6"})
+--local FarmOre = Mining:Toggle("Farm Alien", {flag = "O7"})
 -- AutoFarm
 spawn(function()
     while wait(.01) do
@@ -124,6 +126,13 @@ spawn(function()
 		end
 	end
 end)
+--[[spawn(function()
+    while wait(.01) do
+		if Mining.flags.O7 then
+			farming("Island_7","Ore")
+		end
+	end
+end)]]
 Mining:Section("Gem Farm")
 local FarmGems = Mining:Toggle("Farm All", {flag = "R0"})
 local FarmGems = Mining:Toggle("Farm Starter", {flag = "R1"})
@@ -132,6 +141,7 @@ local FarmGems = Mining:Toggle("Farm Desert", {flag = "R3"})
 local FarmGems = Mining:Toggle("Farm Jungle", {flag = "R4"})
 local FarmGems = Mining:Toggle("Farm Frozen", {flag = "R5"})
 local FarmGems = Mining:Toggle("Farm Space", {flag = "R6"})
+--local FarmGems = Mining:Toggle("Farm Alien", {flag = "R7"})
 spawn(function()
     while wait(.01) do
         if Mining.flags.R0 then
@@ -187,8 +197,42 @@ spawn(function()
 		end
 	end
 end)
+--[[spawn(function()
+    while wait(.01) do
+		if Mining.flags.R6 then
+			farming("Island_7","Gem_7")
+		end
+	end
+end)]]
+--Teleports Tab
+local Teleport = library:CreateWindow("Teleports")
+local function teleport(num)
+local island = game:GetService("Workspace").Resources.Interaction.Worlds["1"].Islands[num].Exit
+game:GetService("ReplicatedStorage").Events.Server.RequestIslandTeleport:InvokeServer("1","6",island)
+end
 
---Pets
+Teleport:Button("Spawn",function()
+	local spawn = game:GetService("Workspace").Spawn
+	hum.CFrame = spawn.CFrame
+end)
+Teleport:Button("Grassland",function()
+	teleport("2")
+end)
+Teleport:Button("Desert",function()
+	teleport("3")
+end)
+Teleport:Button("Jungle",function()
+	teleport("4")
+end)
+Teleport:Button("Frozen",function()
+	teleport("5")
+end)
+Teleport:Button("Space",function()
+	teleport("6")
+end)
+
+		
+--Pets Tab
 local Pets = library:CreateWindow("Pet Stuff")
 -- Open Pets
 Pets:Section("--Open Eggs--")
@@ -200,7 +244,9 @@ Pets:Dropdown("Eggs", {location = _G, flag = "Egg", list = {
 	"Desert Egg 40K Gems",
 	"Jungle Egg 60K Gems",
 	"Ice Egg 200K Gems",
-	"Space Egg 450K Gems"
+	"Space Egg 450K Gems"--[[,
+		"Alien Egg 1M Gems"
+	]]
 }
 })
 Pets:Dropdown("#Eggs to Open", {location = _G, flag = "Number", list = {
@@ -221,7 +267,9 @@ local choice = Pets:Dropdown("Sell Specific Legendary",{location = _G, flag = "c
 	"Anubis",
 	"Rocket",
 	"Ice Wyvern",
-	"The Mummy",
+	"The Mummy",--[[
+		"Name"
+	]]
     }
 })
 local choiceSell = Pets:Toggle("Legendary Sell",{flag="SPet"})
@@ -281,6 +329,11 @@ spawn(function()
 			if string.match(_G.Egg,"Space") then
 				oh1 = "7"
 			end
+			--[[
+			if string.match(_G.Egg,"Alien") then
+				oh1 = "8"
+			end
+			]]
             local oh2 = _G.Number
             game:GetService("ReplicatedStorage")["Events"]["Server"]["BuyEgg"]:InvokeServer(oh1,tonumber(oh2))
         end
@@ -328,15 +381,39 @@ spawn(function()
     end
 end)]]
 
-Pets:Section("Craft Pets")
+Pets:Section("Other Pet Stuff")
 local shine = Pets:Toggle("Auto Shiny", {flag = "AShiny"})
+local bestOre = Pets:Toggle("Auto Best Ore",{flag = "BOre"})
+local bestGem = Pets:Toggle("Auto Best Gem",{flag = "BGem"})
+local bestCoins = Pets:Toggle("Auto Best Coins",{flag = "BCoins"})
 spawn(function()
 	while wait(1) do
 		if Pets.flags.AShiny then
 			shiny()
 		end
 	end
+end)
+spawn(function()
+	while wait(1) do
+		if Pets.flags.BOre then
+			game:GetService("ReplicatedStorage").Events.Server.BestOre:InvokeServer()
+		end
+	end
 end) 
+spawn(function()
+	while wait(1) do
+		if Pets.flags.BGem then
+			game:GetService("ReplicatedStorage").Events.Server.BestGem:InvokeServer()
+		end
+	end
+end) 
+spawn(function()
+	while wait(1) do
+		if Pets.flags.BCoins then
+			game:GetService("ReplicatedStorage").Events.Server.BestCoin:InvokeServer()
+		end
+	end
+end)  
 -- Misc
 local Misc = library:CreateWindow("Misc")
 Misc:Section("--== Other Stuff ==--")
