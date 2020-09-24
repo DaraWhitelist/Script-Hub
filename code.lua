@@ -14,6 +14,12 @@ local Epic = "0.294118, 0.592157, 0.294118"
 local Ultra = "0.0352941, 0.537255, 0.811765"
 local Legendary = "0.419608, 0.196078, 0.486275"
 library.options.underlinecolor = "rainbow"
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
 
 local function rarity(petName)
 	if petName  == "Razorfish" then
