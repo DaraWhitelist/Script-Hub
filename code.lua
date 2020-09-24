@@ -8,15 +8,38 @@ local world= UI:WaitForChild("World")
 local Interact = world:WaitForChild("Interact");
 local Exit = world:WaitForChild("Exit");
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/JsdM2jiP",tR1e))()
+local Common = "0.631373, 0.647059, 0.635294"
+local Rare = "0.768627, 0.156863, 0.109804"
+local Epic = "0.294118, 0.592157, 0.294118"
+local Ultra = "0.0352941, 0.537255, 0.811765"
+local Legendary = "0.419608, 0.196078, 0.486275"
 library.options.underlinecolor = "rainbow"
 
 local function rarity(petName)
-	for _,v in next,player["PlayerGui"]["UI"]["Index"]["PetFrames"]:GetDescendants() do
-		if v:IsA("ImageLabel") and v.Parent.Name == "Items" and v.Name == petName then
-			return v.RarityLabel.Text
-    	end
+	if petName  == "Razorfish" then
+		return "Youtuber"
 	end
- end
+	for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetChildren() do
+		if v:IsA("ImageLabel") and petName == v.ItemName.Value then
+			local color = tostring(v.Colored.ImageColor3)
+			if  color == Common then 
+				return "Common"
+			end 
+			if  color == Rare then 
+				return "Rare"
+			end 
+			if  color == Epic then 
+				return "Epic"
+			end 
+			if  color == Ultra then 
+				return "Ultra"
+			end 
+			if color == Legendary then
+				return "Legendary"
+			end
+		end
+	end
+end
 local function farming(area,type)
 	for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"][area]:GetDescendants() do
 		if v.Name and string.match(v.Name,type) then
@@ -277,18 +300,15 @@ local choiceSell = Pets:Toggle("Legendary Sell",{flag="SPet"})
 --local Limited = Pets:Toggle("Sell All Limited",{flag = "SLimited"})
 
 local function sell(rare)
-    for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetChildren() do
-        if v:IsA("ImageLabel") and v.ItemName.Value ~= "Razorfish" and v.Lock.isLoaded == false then
-			if string.match(rare,rarity(v.ItemName.Value)) then
-				print("worked",rare)
-                game:GetService("ReplicatedStorage")["Events"]["Server"]["DeletePet"]:InvokeServer(v.ItemId.Value)
-            end
-        end
-    end
+	for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetChildren() do
+		if v.Name ~= "Sorter" and string.match(rare,rarity(v.ItemName.Value)) then
+			game:GetService("ReplicatedStorage")["Events"]["Server"]["DeletePet"]:InvokeServer(v.ItemId.Value)
+		end
+	end
 end
 local function sell2(petName)
     for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetDescendants() do
-        if v:IsA("ImageLabel") and v.Parent and v.Parent.Name == "Items" and v.ItemName.Value ~= "Razorfish" and v.Lock.isLoaded == false then
+        if v:IsA("ImageLabel") and v.Parent and v.Parent.Name == "Items"and v.Lock.isLoaded == false then
             if v.ItemName.Value==petName then
                 game:GetService("ReplicatedStorage")["Events"]["Server"]["DeletePet"]:InvokeServer(v.ItemId.Value)
             end
