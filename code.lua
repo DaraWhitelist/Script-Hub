@@ -301,8 +301,10 @@ local choiceSell = Pets:Toggle("Legendary Sell",{flag="SPet"})
 
 local function sell(rare)
 	for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetChildren() do
-		if v.Name ~= "Sorter" and string.match(rare,rarity(v.ItemName.Value)) then
+		if v.Name ~= "Sorter" then
+		if v:FindFirstChild("ItemName") and string.match(rare,rarity(v.ItemName.Value)) then
 			game:GetService("ReplicatedStorage")["Events"]["Server"]["DeletePet"]:InvokeServer(v.ItemId.Value)
+		end
 		end
 	end
 end
