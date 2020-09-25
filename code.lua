@@ -8,7 +8,7 @@ local world= UI:WaitForChild("World")
 local Interact = world:WaitForChild("Interact");
 local Exit = world:WaitForChild("Exit");
 local OnScreen = player.PlayerGui.UI.OnScreen
-local sell
+local sel1
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/JsdM2jiP",tR1e))()
 local Common = "0.631373, 0.647059, 0.635294"
 local Rare = "0.768627, 0.156863, 0.109804"
@@ -507,9 +507,9 @@ Interact.TextLabel.Text = "Enjoy!!"
 v5.DisplayPage(plr, UI, world)
 
 if OnScreen:FindFirstChild("Sell") then
-	sell = OnScreen.Sell:Clone()
-	sell.Name = "Sell2"
-	sell.Parent = OnScreen
+	sel1 = OnScreen.Sell:Clone()
+	sel1.Name = "Sell2"
+	sel1.Parent = OnScreen
 	OnScreen.Sell:Destroy()
 end
 local sellArea = game:GetService("Workspace").Resources.Interaction.Sell["1"]
