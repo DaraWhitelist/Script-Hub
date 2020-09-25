@@ -7,6 +7,8 @@ local UI = player.PlayerGui:WaitForChild("UI")
 local world= UI:WaitForChild("World")
 local Interact = world:WaitForChild("Interact");
 local Exit = world:WaitForChild("Exit");
+local OnScreen = player.PlayerGui.UI.OnScreen
+local sell
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/JsdM2jiP",tR1e))()
 local Common = "0.631373, 0.647059, 0.635294"
 local Rare = "0.768627, 0.156863, 0.109804"
@@ -14,12 +16,6 @@ local Epic = "0.294118, 0.592157, 0.294118"
 local Ultra = "0.0352941, 0.537255, 0.811765"
 local Legendary = "0.419608, 0.196078, 0.486275"
 library.options.underlinecolor = "rainbow"
-local vu = game:GetService("VirtualUser")
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-   wait(1)
-   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
 
 local function rarity(petName)
 	if petName  == "Razorfish" then
@@ -503,3 +499,17 @@ world.TextLabel.Text = "Stay Updated"
 world.CanClose.Value = true
 Interact.TextLabel.Text = "Enjoy!!"
 v5.DisplayPage(plr, UI, world)
+
+if OnScreen:FindFirstChild("Sell") then
+	sell = OnScreen.Sell:Clone()
+	sell.Name = "Sell2"
+	sell.Parent = OnScreen
+	OnScreen.Sell:Destroy()
+end
+local sellArea = game:GetService("Workspace").Resources.Interaction.Sell["1"]
+OnScreen.Sell2.Button.MouseButton1Click:Connect(function()
+	local placeHolder = hum.CFrame
+	hum.CFrame  = sellArea.CFrame
+	wait(.5)
+	hum.CFrame = placeHolder
+end)
