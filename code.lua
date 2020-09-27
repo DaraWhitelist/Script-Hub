@@ -24,11 +24,9 @@ player.Idled:connect(function()
 end)
 
 local function rarity(petName)
-	if petName  == "Razorfish" then
-		return "Youtuber"
-	end
 	for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetChildren() do
 		if v:IsA("ImageLabel") and petName == v.ItemName.Value then
+			print(v.ItemName.Value)
 			local color = tostring(v.Colored.ImageColor3)
 			if  color == Common then 
 				return "Common"
@@ -47,6 +45,7 @@ local function rarity(petName)
 			end
 		end
 	end
+	return "Unknown"
 end
 local function farming(area,type)
 	for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"][area]:GetDescendants() do
