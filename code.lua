@@ -85,7 +85,7 @@ local FarmOre = Mining:Toggle("Farm Desert", {flag = "O3"})
 local FarmOre = Mining:Toggle("Farm Jungle", {flag = "O4"})
 local FarmOre = Mining:Toggle("Farm Frozen", {flag = "O5"})
 local FarmOre = Mining:Toggle("Farm Space", {flag = "O6"})
---local FarmOre = Mining:Toggle("Farm Alien", {flag = "O7"})
+local FarmOre = Mining:Toggle("Farm Alien", {flag = "O7"})
 -- AutoFarm
 spawn(function()
     while wait(.01) do
@@ -156,13 +156,13 @@ spawn(function()
 		end
 	end
 end)
---[[spawn(function()
+spawn(function()
     while wait(.01) do
 		if Mining.flags.O7 then
 			farming("Island_7","Ore")
 		end
 	end
-end)]]
+end)
 Mining:Section("Gem Farm")
 local FarmGems = Mining:Toggle("Farm All", {flag = "R0"})
 local FarmGems = Mining:Toggle("Farm Starter", {flag = "R1"})
@@ -171,7 +171,7 @@ local FarmGems = Mining:Toggle("Farm Desert", {flag = "R3"})
 local FarmGems = Mining:Toggle("Farm Jungle", {flag = "R4"})
 local FarmGems = Mining:Toggle("Farm Frozen", {flag = "R5"})
 local FarmGems = Mining:Toggle("Farm Space", {flag = "R6"})
---local FarmGems = Mining:Toggle("Farm Alien", {flag = "R7"})
+local FarmGems = Mining:Toggle("Farm Alien", {flag = "R7"})
 spawn(function()
     while wait(.01) do
         if Mining.flags.R0 then
@@ -227,13 +227,13 @@ spawn(function()
 		end
 	end
 end)
---[[spawn(function()
+spawn(function()
     while wait(.01) do
-		if Mining.flags.R6 then
+		if Mining.flags.R7 then
 			farming("Island_7","Gem_7")
 		end
 	end
-end)]]
+end)
 --Teleports Tab
 local Teleport = library:CreateWindow("Teleports")
 
@@ -261,7 +261,9 @@ end)
 Teleport:Button("Space",function()
 	teleport("6")
 end)
-
+Teleport:Button("Alien",function()
+	teleport("7")
+end)
 		
 --Pets Tab
 local Pets = library:CreateWindow("Pet Stuff")
@@ -275,9 +277,9 @@ Pets:Dropdown("Eggs", {location = _G, flag = "Egg", list = {
 	"Desert Egg 40K Gems",
 	"Jungle Egg 60K Gems",
 	"Ice Egg 200K Gems",
-	"Space Egg 450K Gems"--[[,
-		"Alien Egg 1M Gems"
-	]]
+	"Space Egg 450K Gems",
+	"Alien Egg 800K Gems"
+	
 }
 })
 Pets:Dropdown("#Eggs to Open", {location = _G, flag = "Number", list = {
@@ -360,11 +362,9 @@ spawn(function()
 			if string.match(_G.Egg,"Space") then
 				oh1 = "7"
 			end
-			--[[
 			if string.match(_G.Egg,"Alien") then
 				oh1 = "8"
 			end
-			]]
             local oh2 = _G.Number
             game:GetService("ReplicatedStorage")["Events"]["Server"]["BuyEgg"]:InvokeServer(oh1,tonumber(oh2))
         end
