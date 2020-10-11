@@ -90,10 +90,15 @@ local FarmOre = Mining:Toggle("Farm Alien", {flag = "O7"})
 spawn(function()
     while wait(.01) do
         if Mining.flags.center then
-            for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"]["Center_Ores"]:GetChildren() do
-                if v.Name and string.match(v.Name,"Ore_"..player["island"].Value) then
+			for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"]["Center_Ores"]:GetChildren() do
+				if player["world"].Value == "Halloween 2020" and v.Name == "Candy_Corn_1" then
+					for i=1,10 do
+                    	game:GetService("ReplicatedStorage")["Events"]["Server"]["RequestSwing"]:InvokeServer(v)
+                    end
+                end
+                if v.Name and player["world"].Value~= "Halloween 2020" and string.match(v.Name,"Ore_"..player["island"].Value) then
                     for i=1,10 do
-                    game:GetService("ReplicatedStorage")["Events"]["Server"]["RequestSwing"]:InvokeServer(v)
+                    	game:GetService("ReplicatedStorage")["Events"]["Server"]["RequestSwing"]:InvokeServer(v)
                     end
                 end
             end
@@ -264,6 +269,11 @@ end)
 Teleport:Button("Alien",function()
 	teleport("7")
 end)
+Teleport:Button("Halloween",function()
+	local exit = game:GetService("Workspace").Resources.Interaction.Worlds["Halloween 2020"].Exit
+	game:GetService("ReplicatedStorage").Events.Server.RequestWorldTeleport:InvokeServer("Halloween 2020",exit)
+
+end)
 		
 --Pets Tab
 local Pets = library:CreateWindow("Pet Stuff")
@@ -278,7 +288,9 @@ Pets:Dropdown("Eggs", {location = _G, flag = "Egg", list = {
 	"Jungle Egg 60K Gems",
 	"Ice Egg 200K Gems",
 	"Space Egg 450K Gems",
-	"Alien Egg 800K Gems"
+	"Alien Egg 800K Gems",
+	"Pumpkin Egg 500 Candy",
+	"Terror Egg 60K"
 	
 }
 })
@@ -335,7 +347,7 @@ spawn(function()
 end)
 -- Open Crystals
 spawn(function()
-	while wait(1) do
+	while wait(0) do
 		local oh1
         if Pets.flags.TEgg then
 			if string.match(_G.Egg,"Starter") then
@@ -364,6 +376,12 @@ spawn(function()
 			end
 			if string.match(_G.Egg,"Alien") then
 				oh1 = "8"
+			end
+			if string.match(_G.Egg,"Pumpkin") then
+				oh1 = "Pumpkin"
+			end
+			if string.match(_G.Egg,"Terror") then
+				oh1 = "Terror"
 			end
             local oh2 = _G.Number
             game:GetService("ReplicatedStorage")["Events"]["Server"]["BuyEgg"]:InvokeServer(oh1,tonumber(oh2))
