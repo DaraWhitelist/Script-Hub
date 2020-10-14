@@ -56,19 +56,11 @@ local function shiny()
 end
 --Mining Ore
 local MineOre = library:CreateWindow("--Ore Farm--")
-MineOre:AddToggle("Gold Ore",function(State) GoldOre = State end)
-MineOre:AddToggle("Center Ore",function(State) CenterOre = State end)
-MineOre:AddToggle("All Ore",function(State) AllOre = State end)
-MineOre:AddToggle("Farm Starter",function(State) StarterOre = State end)
-MineOre:AddToggle("Farm Grassland",function(State) GrassOre = State end)
-MineOre:AddToggle("Farm Desert",function(State) DesertOre= State end)
-MineOre:AddToggle("Farm Jungle",function(State) JungleOre= State end)
-MineOre:AddToggle("Farm Frozen",function(State) FrozenOre = State end)
-MineOre:AddToggle("Farm Space",function(State) SpaceOre = State end)
-MineOre:AddToggle("Farm Alien",function(State) AlienOre = State end)
-spawn(function()
-    while wait() do
-		if GoldOre then
+MineOre:AddToggle("Gold Ore", function(state)
+	getgenv().goldore = state
+	
+	while wait() do
+		if getgenv().goldore == then
 			local args = {
 				[1] = workspace.Resources.Ores.World_1.Center_Ores.VIP
 			}
@@ -76,9 +68,12 @@ spawn(function()
 		end
 	end
 end)
-spawn(function()
-    while wait() do
-        if CenterOre then
+
+MineOre:AddToggle("Center Ore", function(state)
+	    getgenv().center = state
+		
+	while wait() do
+		if getgenv().center == true then
 			for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"]["Center_Ores"]:GetChildren() do
 				if player["world"].Value == "Halloween 2020" and v.Name == "Candy_Corn_1" then
 					for i=1,10 do
@@ -94,9 +89,12 @@ spawn(function()
         end
     end
 end)
-spawn(function()
-    while wait() do
-		if AllOre then
+
+MineOre:AddToggle("Farm All", function(state)
+	getgenv().FarmA = state
+	
+	while wait() do
+		getgenv().FarmA then
 			for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"]:GetDescendants() do
 				if v.Name and string.match(v.Name,"Ore") and v.Parent ~= "Center_Ores" then
 					for i=1,6 do
@@ -107,53 +105,60 @@ spawn(function()
 		end
 	end
 end)
-spawn(function()
-    while wait() do
-		if StarterOre then
-			farming("Island_1","Ore")
+MineOre:AddToggle("Farm Starter",function(state) 
+	getgenv().FarmS = state 
+		while wait() do
+			if getgenv().FarmS then
+				farming("Island_1","Ore")
+			end
 		end
 	end
 end)
-spawn(function()
-    while wait() do
-		if GrassOre then
+MineOre:AddToggle("Farm Grassland",function(state) 
+	getgenv().GrassOre = state
+	while wait() do
+		if getgenv().GrassOre then
 			farming("Island_2","Ore")
 		end
-	end
+	end 
 end)
-spawn(function()
-    while wait() do
-		if DesertOre then
+MineOre:AddToggle("Farm Desert",function(state) 
+	getgenv().DesertOre = state
+	while wait() do
+		if getgenv().DesertOre then
 			farming("Island_3","Ore")
 		end
-	end
+	end 
 end)
-spawn(function()
-    while wait() do
-		if JungleOre then
+MineOre:AddToggle("Farm Jungle",function(state) 
+	getgenv().JungleOre = state
+	while wait() do
+		if getgenv().JungleOre then
 			farming("Island_4","Ore")
 		end
-	end
+	end 
 end)
-spawn(function()
-    while wait() do
-		if FrozenOre then
-			print("yes")
+MineOre:AddToggle("Farm Frozen",function(state) 
+	getgenv().FrozenOre = state
+	while wait() do
+		if getgenv().FrozenOre then
 			farming("Island_5","Ore")
 		end
-	end
+	end 
 end)
-spawn(function()
-    while wait() do
-		if SpaceOre then
+MineOre:AddToggle("Farm Space",function(state) 
+	getgenv().SpaceOre = state
+	while wait() do
+		if getgenv().SpaceOre then
 			farming("Island_6","Ore")
 		end
-	end
+	end 
 end)
-spawn(function()
-    while wait() do
-		if AlienOre then
+MineOre:AddToggle("Farm Alien",function(state) 
+	getgenv().AlienOre = state
+	while wait() do
+		if getgenv().AlienOre then
 			farming("Island_7","Ore")
 		end
-	end
+	end 
 end)
