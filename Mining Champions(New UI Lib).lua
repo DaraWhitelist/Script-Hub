@@ -60,7 +60,7 @@ MineOre:AddToggle("Gold Ore", function(state)
 	getgenv().goldore = state
 	
 	while wait() do
-		if getgenv().goldore == then
+		if getgenv().goldore ==true then
 			local args = {
 				[1] = workspace.Resources.Ores.World_1.Center_Ores.VIP
 			}
@@ -94,7 +94,7 @@ MineOre:AddToggle("Farm All", function(state)
 	getgenv().FarmA = state
 	
 	while wait() do
-		getgenv().FarmA then
+		if getgenv().FarmA == true then
 			for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"]:GetDescendants() do
 				if v.Name and string.match(v.Name,"Ore") and v.Parent ~= "Center_Ores" then
 					for i=1,6 do
@@ -105,12 +105,11 @@ MineOre:AddToggle("Farm All", function(state)
 		end
 	end
 end)
-MineOre:AddToggle("Farm Starter",function(state) 
-	getgenv().FarmS = state 
-		while wait() do
-			if getgenv().FarmS then
-				farming("Island_1","Ore")
-			end
+MineOre:AddToggle("Farm Starter", function(state) 
+getgenv().FarmS = state 
+	while wait() do
+		if getgenv().FarmS then
+			farming("Island_1","Ore")
 		end
 	end
 end)
