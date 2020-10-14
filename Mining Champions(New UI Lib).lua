@@ -55,12 +55,13 @@ local function shiny()
     end
 end
 --Mining Ore
-local MineOre = library:CreateWindow("--Ore Farm--")
-MineOre:AddToggle("Gold Ore", function(state)
+local Farming = library:CreateWindow("Farming")
+Farming:AddLabel("ORE FARM")
+Farming:AddToggle("Gold Ore", function(state)
 	getgenv().goldore = state
 	
 	while wait() do
-		if getgenv().goldore == then
+		if getgenv().goldore then
 			local args = {
 				[1] = workspace.Resources.Ores.World_1.Center_Ores.VIP
 			}
@@ -69,7 +70,7 @@ MineOre:AddToggle("Gold Ore", function(state)
 	end
 end)
 
-MineOre:AddToggle("Center Ore", function(state)
+Farming:AddToggle("Center Ore", function(state)
 	    getgenv().center = state
 		
 	while wait() do
@@ -90,11 +91,11 @@ MineOre:AddToggle("Center Ore", function(state)
     end
 end)
 
-MineOre:AddToggle("Farm All", function(state)
+Farming:AddToggle("Farm All", function(state)
 	getgenv().FarmA = state
 	
 	while wait() do
-		getgenv().FarmA then
+		if getgenv().FarmA then
 			for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"]:GetDescendants() do
 				if v.Name and string.match(v.Name,"Ore") and v.Parent ~= "Center_Ores" then
 					for i=1,6 do
@@ -105,16 +106,15 @@ MineOre:AddToggle("Farm All", function(state)
 		end
 	end
 end)
-MineOre:AddToggle("Farm Starter",function(state) 
+Farming:AddToggle("Farm Starter",function(state) 
 	getgenv().FarmS = state 
 		while wait() do
 			if getgenv().FarmS then
 				farming("Island_1","Ore")
 			end
 		end
-	end
 end)
-MineOre:AddToggle("Farm Grassland",function(state) 
+Farming:AddToggle("Farm Grassland",function(state) 
 	getgenv().GrassOre = state
 	while wait() do
 		if getgenv().GrassOre then
@@ -122,7 +122,7 @@ MineOre:AddToggle("Farm Grassland",function(state)
 		end
 	end 
 end)
-MineOre:AddToggle("Farm Desert",function(state) 
+Farming:AddToggle("Farm Desert",function(state) 
 	getgenv().DesertOre = state
 	while wait() do
 		if getgenv().DesertOre then
@@ -130,7 +130,7 @@ MineOre:AddToggle("Farm Desert",function(state)
 		end
 	end 
 end)
-MineOre:AddToggle("Farm Jungle",function(state) 
+Farming:AddToggle("Farm Jungle",function(state) 
 	getgenv().JungleOre = state
 	while wait() do
 		if getgenv().JungleOre then
@@ -138,7 +138,7 @@ MineOre:AddToggle("Farm Jungle",function(state)
 		end
 	end 
 end)
-MineOre:AddToggle("Farm Frozen",function(state) 
+Farming:AddToggle("Farm Frozen",function(state) 
 	getgenv().FrozenOre = state
 	while wait() do
 		if getgenv().FrozenOre then
@@ -146,7 +146,7 @@ MineOre:AddToggle("Farm Frozen",function(state)
 		end
 	end 
 end)
-MineOre:AddToggle("Farm Space",function(state) 
+Farming:AddToggle("Farm Space",function(state) 
 	getgenv().SpaceOre = state
 	while wait() do
 		if getgenv().SpaceOre then
@@ -154,11 +154,91 @@ MineOre:AddToggle("Farm Space",function(state)
 		end
 	end 
 end)
-MineOre:AddToggle("Farm Alien",function(state) 
+Farming:AddToggle("Farm Alien",function(state) 
 	getgenv().AlienOre = state
 	while wait() do
 		if getgenv().AlienOre then
 			farming("Island_7","Ore")
 		end
 	end 
+end)
+Farming:AddLabel("GEM FARM")
+Farming:AddToggle("Farm All",function(state)
+	getgenv().FarmA = state
+	while wait(.001) do
+        if getgenv().FarmA then
+            for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"]:GetDescendants() do
+                if v.Name and string.match(v.Name,"Gem") then
+                    game:GetService("ReplicatedStorage")["Events"]["Server"]["RequestSwing"]:InvokeServer(v)
+                end
+            end
+        end
+    end
+end)
+Farming:AddToggle("Farm Starter",function(state)
+	getgenv().FarmS = state
+	while wait() do
+		if getgenv().FarmS then
+			farming("Island_1","Gem")
+		end
+	end
+end)
+Farming:AddToggle("Farm Grassland",function(state)
+	getgenv().GrassGem = state
+	while wait() do
+		if getgenv().GrassGem then
+			farming("Island_2","Gem")
+		end
+	end
+end)
+Farming:AddToggle("Farm Desert",function(state)
+	getgenv().DesertGem=state
+	while wait() do
+		if getgenv().DesertGem then
+			farming("Island_3","Gem")
+		end
+	end
+end)
+Farming:AddToggle("Farm Jungle",function(state)
+	getgenv().JungleGem=state
+	while wait() do
+		if getgenv().JungleGem then
+			farming("Island_4","Gem")
+		end
+	end
+end)
+Farming:AddToggle("Farm Frozen",function(state)
+	getgenv().FrozenGem=state
+	while wait() do
+		if getgenv().FrozenGem then
+			farming("Island_5","Gem")
+		end
+	end
+end)
+Farming:AddToggle("Farm Space",function(state)
+	getgenv().SpaceGem=state
+	while wait() do
+		if getgenv().SpaceGem then
+			farming("Island_6","Gem")
+		end
+	end
+end)
+Farming:AddToggle("Farm Alien",function(state)
+	getgenv().AlienGem=state
+	while wait() do
+		if getgenv().AlienGem then
+			farming("Island_7","Gem")
+		end
+	end
+end)
+local Misc = library:CreateWindow("--==Misc==--")
+Misc:AddKeyBind("Toggle Key",Enum.KeyCode.RightShift, function()
+    if game:GetService("CoreGui")["nigga"].Enabled then 
+        game:GetService("CoreGui")["nigga"].Enabled = false
+    else
+        game:GetService("CoreGui")["nigga"].Enabled = true
+    end
+end)
+Misc:AddButton("Destroy GUI",function()
+	game:GetService("CoreGui")["nigga"]:Destroy()
 end)
