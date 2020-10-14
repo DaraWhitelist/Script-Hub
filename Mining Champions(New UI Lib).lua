@@ -61,7 +61,11 @@ Farming:AddToggle("Gold Ore", function(state)
 	getgenv().goldore = state
 	
 	while wait() do
+<<<<<<< HEAD
 		if getgenv().goldore then
+=======
+		if getgenv().goldore ==true then
+>>>>>>> 7725dc36d831f685755c01ba36ce6916e4799981
 			local args = {
 				[1] = workspace.Resources.Ores.World_1.Center_Ores.VIP
 			}
@@ -95,7 +99,11 @@ Farming:AddToggle("Farm All", function(state)
 	getgenv().FarmA = state
 	
 	while wait() do
+<<<<<<< HEAD
 		if getgenv().FarmA then
+=======
+		if getgenv().FarmA == true then
+>>>>>>> 7725dc36d831f685755c01ba36ce6916e4799981
 			for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"]:GetDescendants() do
 				if v.Name and string.match(v.Name,"Ore") and v.Parent ~= "Center_Ores" then
 					for i=1,6 do
@@ -106,12 +114,20 @@ Farming:AddToggle("Farm All", function(state)
 		end
 	end
 end)
+<<<<<<< HEAD
 Farming:AddToggle("Farm Starter",function(state) 
 	getgenv().FarmS = state 
 		while wait() do
 			if getgenv().FarmS then
 				farming("Island_1","Ore")
 			end
+=======
+MineOre:AddToggle("Farm Starter", function(state) 
+getgenv().FarmS = state 
+	while wait() do
+		if getgenv().FarmS then
+			farming("Island_1","Ore")
+>>>>>>> 7725dc36d831f685755c01ba36ce6916e4799981
 		end
 end)
 Farming:AddToggle("Farm Grassland",function(state) 
@@ -162,6 +178,7 @@ Farming:AddToggle("Farm Alien",function(state)
 		end
 	end 
 end)
+<<<<<<< HEAD
 Farming:AddLabel("GEM FARM")
 Farming:AddToggle("Farm All",function(state)
 	getgenv().FarmA = state
@@ -242,3 +259,5 @@ end)
 Misc:AddButton("Destroy GUI",function()
 	game:GetService("CoreGui")["nigga"]:Destroy()
 end)
+=======
+>>>>>>> 7725dc36d831f685755c01ba36ce6916e4799981
