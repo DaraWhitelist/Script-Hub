@@ -1,1 +1,353 @@
-return(function(h,a,a)local k=string.char;local e=string.sub;local p=table.concat;local o=math.ldexp;local n=getfenv or function()return _ENV end;local l=select;local f=unpack or table.unpack;local j=tonumber;local function m(h)local b,c,d="","",{}local g=256;local f={}for a=0,g-1 do f[a]=k(a)end;local a=1;local function i()local b=j(e(h,a,a),36)a=a+1;local c=j(e(h,a,a+b-1),36)a=a+b;return c end;b=k(i())d[1]=b;while a<#h do local a=i()if f[a]then c=f[a]else c=b..e(b,1,1)end;f[g]=b..e(c,1,1)d[#d+1],b,g=c,c,g+1 end;return table.concat(d)end;local j=m('1D21J27521J21P27622J22G22E22B21W21V21X22M22H22821J21F27622822E22I22A21J21C27623J21V21V21Z23422A21V21J1M27622N27V21Z21W1D1O1O21Z22E27E22A22D27H1P22C22G22I1O21X22E21S1O21T23J23H22E1522O22N23721J21G27622H22A21S21J27427523F22M22921V1N23F22A22822A22H27D1N2231N23E27C22A1N23922629O22M22823J22E22522522E21X1K14171F1629I1N22R22G22822822J29N21S22M21V22N1N22T22S22N29828021E27622Q23722M22I1521I2762AV21J2AU2AV26V25123B2AY2AV22623B21J21K27623822N22E27I22A2A72A92AB23G22A22627K27623622H21U22I27R2762BI22623822G22B27Q27827522T29S2842AJ2AL21J21R2B922E21V29D22G21X2BK27S27523821X22A22B2AE21W21J21Q27623A21U21V22G23529Y22I2CM27L2752AJ22G21Z2CN27622R22A2AB21Z2CC21V2CM21D27622S22A22C2CS21X2772CP2CR22G1N2CU21X2CW21J21227623I21W22J2BC29H2D52D72D92CM1Y2DK2CS29O21U29Q22O22A2C229A22S21V21U22922921J21N2DD22C27G21Z29A29L22K22A2DI2172762392E71N22V27Z1N2ED2EF2291N1V23D2DM23A22H2AR2C922M22G22H1U21J2AN2CG22N22A2C92C62B92FJ22C22K22D22G2272D32752CQ2E52972992FG27621W28B21S22H21J2132E42DM22R28M27H2F021Z22A2CJ2G62G82A62GB22H2EX21U22H22C22N21J2102GI2GA22E2GC22P2AE22E22J2AE2BK2CO2FV2DL2F02D622J2DR2GI2EV29Q2ED2CI27I2AF21J2112HA2EW2BN22B21U28M2GO27Q2G72H42E52HB2AH28E22M21X2HG2192HJ29Q2D52HX1N2A42362A92F416171N23G2FF2I02HS2DM2HU2I321X1N151N2I72282I92IB2392FF2182I12A62EA2IK142IN2I81V2IA2IB22R2IE2IV2IJ1N132J02IP2J22F022M2J62IG2E62I22IX1N122JB2I91N23D22P2FF2162J72JK112JN2J2172IB23823H2332FF2822JH2II2JK102JX1622A16152IB28I27H21W2FF2GS27522R2BB22H22K1N22622G21U1N2292CC1N21U21W27H27J1J2EK2EM2EO29M29O29Q22U21T27F2FC1O23929S29U29W29Y2A02A21621J1W27622V2AB28C29N23H22G2GC2KM29N2AQ21W28I21X22B21J2DC2752EV27V2FD2H92KL2D622A2D82HY2A62DM22S2G32G52HI2MA2E02ME2A71N2312FD29N152HH2D42MB2MD29A2MO2MQ2911N142MU2ML2MC2D92MF2MP2MR2J92N421J2DZ2N62MN2DM2N029N122NC2NE2MX2N82NI1N112NL2MW2N72MZ2NA102NS2MM2MY2NH2NA1F2NY2NF2O02N92N11E2GR2MV2NZ2NO2NA2IA21J21B2B92D129Q2LY2M022B1N23I22H21T2AE29N2972KO1S2762B32BL27522H27O27Q27621H2762112O92752OY21M2OX2OX2BZ2752CY21J21S2GV2802PG2P127P2G02CG2H02FP2OZ21J27N2PN2PE27Y21V2DE21X2OR22C27Q2DS2C02MC2PQ2C92CJ2ED2CC22E29E2BR27523D27Z21S2CC22K2PO21J22V2D92LL2PE2352HX22A2PZ21T2ER2OY27525Z182AV2LN27521128X2P92AV2MT2R62P521D192762AN2AU2AU21F2ET2752RE27K2RI21J1X2AX2HH2R521J2P527521D1B2AW2B32RH2RX2HH1Z27628Z2R31G2RP2PG1N2R62AU2AN2MK28Z2M42AV2AU28Z2P52S92RP2AU27S2SK2RF2FM2SK2P52AU2H32PF2AW2P42BL2AU2MK2SS2P627528Z2PE2SX2T12PG2PC21J2PB2R62T92752SU2FW22G2MH2GF2M22SX2R32P82RP2762TB2TO2AX2SU2PS2PI2AE2FU21J2TG2TI2GG2CF21J22T2GN2F927I2PS2PU2BY2762PX2QU22M2Q22M92U32Q62UE2Q822B2QA28M2QD2U22QG21V2QI21X2QK2FH2QM2QO2DJ2752QR2CI2QU2ER2AV2E32R32RR2OY2R82RP2RA2RW2752S22RY2RM2VE2RQ2TL2M32VC2TD2RZ2SG2S12S32P62EJ2RG2762SO2RP2SC2T32M32SW2SH2RS21J2VV2SM2W32SA2SQ2752T12TT2T82AV2P527L2SZ2W92TR2SX2SP2WC2TO2TQ2OY2OY2TF2DL22V2GN2GP2WD2P62TN2PA2TD21I2EJ2762PG2TV2802WQ2CS2WS2GO2GQ2C72752X82GP2L02U82P22UY21J2UC2ER2Q127Q2SU22O2QJ2G222E2UF2KK2UW21S2ER2GU27H2L023522G22J2BX2DI2UV23E2BW2D62UG22T2UI22C2UK2UM2QC27Q2UP2QH2QJ2QL2QN2HY2QP2762V02QT2XL2V32762JT2V62TD21J2V92AU2VB2762ET2VF2Z22RP2R42VJ2RB2762C72WK2RM2ZB2RL2S02112S22VY2R31H2S72VU2W72VX28Y2VZ2S02SI2W62SL2BR2W42FM2T02PS2SR2W22ZP27L2TT2WH27L2SJ2WH2P527831012P521O2ZU2ZT2X12RJ2SW2RU2WI2VY2DC2WG2ZQ2QX310P2ZM2S02TA2YX2OY310H2TG2GX21V2GZ2H12WV2TM2YX2WN2OX2WB2762X42EI2G8310Z311121V2BK2XB21J311D2H0311F2XG2PV2UB27Z2UD2UF2Q42UH21Z2Q72CA2UL2DH2YG2QE21J2UQ2US2UU2LO2UX2QQ2QS2V22DI2762V52VI2TC2752YZ2W22RV2762VH2PF2VG2Z62RR2RT2VK310T2ZF2VO2ZH2VQ2R32VS31002ZO2N42SE2W02ZQ31082ZV2SN2W72C731012ST2AV2WL31062Z62WH310Q2T12VT310T31162YX311H2TZ2H731132HH2WX2AV313K2TS313B31192PJ2FM2IG2DE22J2H82PE314022J2BN2ER2282BK2PG2U92XI2XK2Q02UE2Q32762YB311U2UJ311W2YF2UO27631222YK2UV2YM21V2YO2UZ31282YS312A2752R2312D2WI312G2RA2RC310I2ZC2RD2S72RM2RO2SZ312O2762Z92TE2ZV2VN2D32RG2RM2R6312U2ZJ2HH312X2S8312Z2SD2ZR2VO2ZT2ZX31362ZV3138313F2TX2PS2AW2WE313E2W2313G315H3132310U312E2WI2X622G2XD2GQ2VJ2P731152WZ2T52X3313X316E316G21J310E2XC2HN2GP2LR23A3141313Y21J2HD29F2282HG314A2XH2PW311P2XL314F2YA2YC2YE311Y314N2QF2YJ2UT2YL31262YP314W2Q02YT314Z2P62V72R72PC2Z1275315B2X2315A312N2Z82VL312E315I315M2ZI2ZQ2R32B6313I2N42P52UV310C2VZ2MK27L2U22SX31072ZU2P52P531602W22P52CO2SK2ZT2T52UV2AW310N2SW3131310O28Z310Q3190310S2VO316B2WI2OY2UV2ED29Y2CM316I313R2TP316L313V275311A3198311021X2CM316S2QM316U2BB21W22A316X2H82SU2HL2HN2BC2UF3175311N275314D2XM317B314J2YD314L317E2YH314O317H31242XC317K314V2V1314X2AV2OH2YW316C31532M331552G031573156312S2LM317Z2WH2RU31812TR31832Z631852S42HH31882PS2ZZ318C3109318E2SV318H313D3134318L2W8318O2D3318R2W2318T310J2VZ319131BN3130310L310R31892T9313T2WI2U22YB28F2HY316H31AW313Q316K312E21I316M313W2TW31BX2HW31C0316Z2WS21X316V319R2PS22T2BC2QK31A02UA31A23178314E311R314H317C31A82QB317F312131AC317J2YN2XI2YQ312931AJ317Q2YX31AN312I317P2Z431D93151312P315F2FM31AR31DF31AT3184312V31B4319331B72ZN31BH2DC318F3120318I2W2318D318N31BF318Q2VY310A2AV318U2AV318W2AW318Y31BQ31BO2WK316A31BV31972MV2HX2LL319C31C42TR2X0319G2PH313X2UV2IJ2LL2TQ31CE31CG22A2CH2Q82QL22R22M2ER16310Q25J2R031CM314C31CP31A4311S314I311V2Q931A93120314P317I314R31AF21J31D2314X310Q25R2R02762IU31AL3152317T312Q2752I031DA21J31FV31DC315E31AP2ZE315K2ZA31592ZG31B22P6278318931DN2R3310M31DO28Z28Z27S2MK2AN311H2VQ2AN313431GF31BI2VY2T42ZU27L28Z319N315U2AW27S310Q2C7312P2X231DH31DR2B331GI311B2AW318J31BT2TC31EB31E131ED21X2V92W23114316C313T31EJ31H2319H31EM31HE2MT31EQ319P2LR31EU2CA31EW31EY31HF31F131F327M3176311O2PY317931CR2Q531A6317D31CV31AA317G2UR314Q312531D0312731AH317N21X31FL31FN27531FP31512V831FS31D831FX31AZ2RM31FY2Z731C231DE31G231AT2ZE31B02SZ31G72R331G931B62WH2UV315T2SF31BJ31GG2N431GJ318X2G031GN2ZQ31DY2ZQ31GR2SK31GT316R31E331BM31GY2SW31H02SW27L2ZE31H42T22G0310H31H22T731EA310V31HD2MA2HX2N331EG31HJ2WZ31K2316N2TW31EN2IX2N331HR31CF319Q31ET28M31HV31EN31HX1431HZ311M31CN2XJ31F6317A31F831CT31FB31IA31FD31CY31FG31IG317L31II2QV31IK2SW31FM2AV2IF31IP317S2R931FT21J21A31IU27631LK315C3180312R31J32VP315O21131J72PG31GB31BQ31JC31GQ2BR31H631GK2VY31GM310F31JK31M631JN2SV31GU31JR310J31JT2AW31JV31H831H32SV31H5310I31K22SV31K4313J31K6315831K821X13313P316J31KC31C531KE31C82AM31HE31MU31KK31ES31HU27Q31KQ2ER1331KT31F4317731I431CQ314G31I731FA311X31L22YI31ID31FF31IF314T31D1317M31L931IL2AV31IO31IX31FR31LH31DE2RK31G331AS315I31IW315D31AX31LQ315L31B131DK31LU31DM31J931K0313127531JD31M1310I31M32ZQ31M531OH31JL31GO310B31MA31JQ315E31JS31BR31MG313V31JY31MJ31K02AN31MM2BL31MO319431HC31MR2ND2IX2NK31KB2WI31HK31MZ31HN31KG31HE2NK31N431KM31N631HW2ER1231NB31I131A131KW31NE31F731CS31I831CU2UN31IB31CX31NM31AD2UW31L631AG2YR31IJ31NT31FO31D531AM31IR31AP31O031AT2RK31O331AV31HH31LI318231O831J431OA31LV31K0318B31OE315U31OH31GH31OJ31JH31OM31M031OO2ZQ31OQ2BL31MB31OT31MD31OV31QJ31H231OY2SY31P031H7313V31P431BU31MQ310I31MS2NR31PB2WY31MY31EK319I31HE2NR31PJ31HT31KO31N72D431HX1131PP275314B31ND311Q31NG311T31NI314M31PZ31FE31Q2314S314U31FI31NR2QW31LB31IM21J2RM31NW31IQ31NY31QD315H2RM31QG2RM2IU31LO31IY31AP2CO31DG31SW31DI31O931LT31QP31GC310231QS31LZ31JM31OI2G031OK28Z31QY31T731R031M931R331OS310K31R631GZ31R82SV31RA2WF31RC31P231H9316331HB31RH31EW2IX2NX31RL313S31KD31RO31HO31MS2NX31RS319R31PL31N821X1031RZ2PT31I231CO31PT31KY31PV31S631FC31NL312331CZ31NP31IH31Q631NS31SG2AV31SJ317R27631D731SN31DG31SQ31Q931ST31QJ31DE31SY31O1315J31SZ31QN31T131OC31T431T331OF31M831T831JG31E531JI31VE31TE2DJ31JO2ZQ31GV2SF31GX31R731H131TM316631TO31T331P131JW316731TS2WM2YX31BM31RM31BR316A27531BV31C731S02XH2U22LP22E2262ER319M27623F22G2YD22J31WD31WF2DI2SU2BA29Y2XS2CA2DI2HR21J23J2BP2BC2LU22B22T22G22G21V22V29Y2802SF23823528M2PN31B329121S21I26U23326G26V25V1H25K1821I25D24O21N26V26Z26R21126V21I21K24323A26V2132331G26V31TZ2R31T2TD2SK2WV31YD2VQ31YF2SV31YH2G02MK2AU31T62SP31QV2W2311H315T2SU31DR2T52R6318J31WW31BP312R2XI31KU312031WN31WG31TH31WJ31WL31Z431WP2FN31WS2DG2V331WW31WY22I31X022M31X231X431X631X8315U31XB31XD27Q31XF29221I24R23U26N1N1F24S1V31XZ1H22U26B1926T2721P31XZ22121X1Z1N24D24S24X31Y8319E31YA31YC2SW31342AV28Z31YJ27L31YJ2ZP31YM31DO31YO318A316Z31YS31K027L31YV2ZM2P531YY31E4319427531W931UC2PN31WC2DW31WO31WH29631WK2GZ31Z92TX31WR28M31ZD31WV27T31WZ22H31X131X331X531X72HY31ZO31XC2XH31ZS31XH23Z24U21H25321J2701N31XZ23T1627L26O2551731XZ24J25D21D22W24V1W24N320I31W72P631YB312E31YJ320N31YG31VY320S2N4320U31OG2W731YP318M31QS31YT2SV32122VT321431JR310Q2OY3219314B321C31WE31Z5319N31Z7321I321D2V331WQ2BB321M31WU2GH27531ZG31ZI31ZK321U31ZN31XA321Y31XE29031ZT22L23J21525323W25221O2B225R23226V22W1G2731631XZ24O23221124721D1Y24I322O3195211322R2TR322T2ZU320O324W31H2322X31YL31QT3231320X31YR2VY32352BL323731P3323R310K323B2AV323D31WB2LO323L319L31Z6321H31WM325I321K323O31WT31ZE321P31ZH321R31ZJ321T31ZM321W323Y31ZQ318621J31XG21I24N23K23822F1F24Y2112B222825N23Q25K25J21G324H21I25P26226426V25Q1K24T324Q2TQ324S320L3164324Y2VY320Q326X31YK2R631YN2RP3232320Y3256321031Z131YW2W2321531BR323C31EK323E325H323G325J323I325L321J323N31ZC323Q31ZF321Q321S31ZL321V31X92B9323Z31ZR324131XH22P25F25X21421224P2132B224526W26322W25L22Y1231XZ21022124E24O1026324P326S322Q326V31YE31JH326Z32503272320V3274325432343278325931YX323A31W631Z131F4323F321E325K31Z8325N327N323P325R323S327R325V327T323X327W3260322021I2451C22G21J25A26N31XP21I26922723725Z2442301131XZ1923O1J23B1Q26D246328O320K322S320M3270320P322W2SW320T32523135328Y31VC2TX31YU3132329231OT325D276325F321B327H3298327K329A327I325O327O329E31WX329G323V325X327V2CG327X3261326321N26926Y25K25924R328721I1I23I26P2KU22E32A221I21321U2142531321S24332AB2HH324T2B3324V31YJ32AG31MH328U2RP32732W52ZZ325531M731T3321132AQ327B329331Z032AV31PZ31Z9321F21J323J325M32B1329C325Q321O329F325T327S323W325Y329K321Z327Z21I21H26D2B125N1H21E2B221T27224K25K1J101F31XZ25J25925Z22023G25V24132C0326U32AD326W32C53270320R32AI322Y32AK320W32CC328Z32CF32793213325B31YZ3217329531PQ32CM325I32CO32CQ327M31ZB329D32CV32B532CX329H32CZ32B921J31ZP32D22P031ZT24F25N21326V21X25E1V2B21W23022T25K22L23M32DI21I1K25G27321422J1624E32DR32C231DO328R31VH328T32DY325132CA31T8323332AN325732CG2S032AR325C329431H1310H319R21V22C2H021Z2FR29Y2M231LE28427W2872892CK2LZ2CC22B1P2A91O2321123723G22P21X23331EK31SK2P62VH31H12PG2T131952OY2632P61A2TD3251312P2ZX28Z315T2WL2W131BM31TL2VA2ZU2B3318U32GY31LY31D5318G2VU2382BL27L2ZP31VG2N42DC325727S32CD2C7321231JX31W631BE2RP310E315T310H31OH2PB2IN31T721L2752NK31BF2AU31392B72N427L31YY31BD31M62AU2B831H6311S31GL31DU31OZ32IN310K2MK313V2DC2SJ2R02RK32IN2P527S2XU315827S31342DC28Z2S22MK2C7312C31OT31JV2SK27S2AN32JA315G2RO31VQ2CO31342C727L32JJ2DJ31502VZ32HX31DU1P2D32P532JR310E31AK2AV2CO310E313427832JQ2N42EJ31LK2AW2782EJ3134310E2DC2I02MK2PB31NV27532IA2RM21H2GS2B82AW1I31JQ2B831LO310E2YV2RS2GS312X31H232K52RP1N2R032KG31IT312U32KK32GU21J32IA2152P432KQ31R832KT310E32KV2VI32KX32LF311B31B32BL32L332IE32L62VZ32KI2S232LA2R32S232IA21432LN2B82T832LI32IG32KW21J32KY32KP311B318U27L32LR2W332LT32KH2VP32LX2VP32IA31YD32MA2B831VP32M532LK2Z732LM2W932L031DS32MD31VZ32L531JQ32MH32L921J31NV32LZ28132M2316Z21J32MQ317Z32MT32KZ311B311832ME32MZ310E2C732LV310U32N432LC21J1L32N72T532NA32M732M932MV31GV32MX2T132NH2FM32NK32MJ312U32IA1K32N731K232NS32LL32M832LN2EJ2TQ32LQ32MY32LT32NJ32MI32N332LB32IA2L232MU32IG32IA27632O832MS32OA32ON2EJ32KR2SV32NG32LT27832O132OJ32LY32NN32KT32ON2B831YY32OR28X32NC32MA2EJ32IP32NX32L432OZ32L832LW32P232MK21J2ZL32P62NC32N932KU32NB32OT32ND2EJ32J432PF32LS31JQ32P032OI32NM32IA2S632PO318532PQ32LJ32PS32NU311B32JD32PX32MF32PZ32PI32NL32OK21J1V32N732JL27532P931JQ32QA2EJ32JT32QD32NZ32Q032N232Q221J2FF32PO32K232Q732M632O932QQ31LJ313V32OY32QF32P132QX324T32MN31IT32OQ32PR32NT32OB32PK32OE32NY32PH32RA32QI2OW32PO315L32QO32PB32MV32KY32RK32PG31JQ2CO32P11R32QI1Q32N732LE32RF32Q832PY310E32RZ32OI32S132P332IA32JX32PO32M132S632R332NZ27S32P11O32QI1732N731YF32O832SK32QG2PB32SN32SD21J31EF32ND2B82K532QN32RG32QE310E32SL32OI32SW32PL2V932RD32NP32SI32LK32ST32SM32QI31KA32T021J32O532TE32RX32T632SU21J32T932O321J31MU32PO32OM32T332S732T52BR32TH32SX31PA32TK32P532TY32SJ32LT32T732N232TS32N531RK32TK32PN32U732TF32U932TQ32UC32NN31TX32TK32Q432UH32TO32U132T832QI2O332PO32QK32TN32S832US32UB32QI2TN32RD32QZ32UQ32UZ32SA32V132SX29532TK324T32R232LK32GZ2AV');local a=(bit or bit32);local d=a and a.bxor or function(a,c)local b,d,e=1,0,10 while a>0 and c>0 do local f,e=a%2,c%2 if f~=e then d=d+b end a,c,b=(a-f)/2,(c-e)/2,b*2 end if a<c then a=c end while a>0 do local c=a%2 if c>0 then d=d+b end a,b=(a-c)/2,b*2 end return d end local function c(b,a,c)if c then local a=(b/2^(a-1))%2^((c-1)-(a-1)+1);return a-a%1;else local a=2^(a-1);return(b%(a+a)>=a)and 1 or 0;end;end;local a=1;local function b()local f,e,b,c=h(j,a,a+3);f=d(f,55)e=d(e,55)b=d(b,55)c=d(c,55)a=a+4;return(c*16777216)+(b*65536)+(e*256)+f;end;local function i()local b=d(h(j,a,a),55);a=a+1;return b;end;local function g()local c,b=h(j,a,a+2);c=d(c,55)b=d(b,55)a=a+2;return(b*256)+c;end;local function q()local d=b();local a=b();local e=1;local d=(c(a,1,20)*(2^32))+d;local b=c(a,21,31);local a=((-1)^c(a,32));if(b==0)then if(d==0)then return a*0;else b=1;e=0;end;elseif(b==2047)then return(d==0)and(a*(1/0))or(a*(0/0));end;return o(a,b-1023)*(e+(d/(2^52)));end;local m=b;local function o(b)local c;if(not b)then b=m();if(b==0)then return'';end;end;c=e(j,a,a+b-1);a=a+b;local b={}for a=1,#c do b[a]=k(d(h(e(c,a,a)),55))end return p(b);end;local a=b;local function m(...)return{...},l('#',...)end local function j()local h={};local d={};local a={};local k={[#{"1 + 1 = 111";"1 + 1 = 111";}]=d,[#{{8;564;940;236};{822;348;571;648};"1 + 1 = 111";}]=nil,[#{"1 + 1 = 111";"1 + 1 = 111";{312;750;718;413};{977;600;46;673};}]=a,[#{"1 + 1 = 111";}]=h,};local a=b()local e={}for c=1,a do local b=i();local a;if(b==2)then a=(i()~=0);elseif(b==1)then a=q();elseif(b==0)then a=o();end;e[c]=a;end;for a=1,b()do d[a-1]=j();end;for j=1,b()do local a=i();if(c(a,1,1)==0)then local d=c(a,2,3);local f=c(a,4,6);local a={g(),g(),nil,nil};if(d==0)then a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}]=g();a[#("YTcZ")]=g();elseif(d==1)then a[#("KhS")]=b();elseif(d==2)then a[#("kdb")]=b()-(2^16)elseif(d==3)then a[#("5sp")]=b()-(2^16)a[#("VffC")]=g();end;if(c(f,1,1)==1)then a[#("9r")]=e[a[#("qg")]]end if(c(f,2,2)==1)then a[#("zdQ")]=e[a[#("Krs")]]end if(c(f,3,3)==1)then a[#("ZcKe")]=e[a[#("nj2S")]]end h[j]=a;end end;k[3]=i();return k;end;local function k(a,b,g)a=(a==true and j())or a;return(function(...)local d=a[1];local e=a[3];local j=a[2];local i=m local b=1;local h=-1;local n={};local m={...};local l=l('#',...)-1;local a={};local c={};for a=0,l do if(a>=e)then n[a-e]=m[a+1];else c[a]=m[a+#{{625;911;583;908};}];end;end;local a=l-e+1 local a;local e;while true do a=d[b];e=a[#("i")];if e<=#{{706;46;332;352};"1 + 1 = 111";"1 + 1 = 111";{343;909;998;312};{916;15;594;621};"1 + 1 = 111";"1 + 1 = 111";{282;109;701;633};"1 + 1 = 111";{833;311;186;945};"1 + 1 = 111";{785;700;84;336};"1 + 1 = 111";{884;4;526;715};{126;538;457;36};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{565;311;109;621};"1 + 1 = 111";{392;306;563;726};{173;42;118;210};{510;83;432;867};{487;804;816;688};{719;319;82;570};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{826;73;270;341};"1 + 1 = 111";"1 + 1 = 111";{809;742;500;952};"1 + 1 = 111";{252;655;336;222};}then if e<=#("pRH7tq2Yhk1GMciD")then if e<=#("Oop5rYO")then if e<=#("mup")then if e<=#("s")then if e==#{}then local b=a[#("Ji")]local d,a=i(c[b](f(c,b+1,a[#("uyb")])))h=a+b-1 local a=0;for b=b,h do a=a+1;c[b]=d[a];end;else local h;local e;c[a[#{"1 + 1 = 111";{261;803;898;364};}]]=a[#("4Yy")];b=b+1;a=d[b];c[a[#("CH")]]=a[#("Dcf")];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";{169;533;403;742};}]]=g[a[#("B9q")]];b=b+1;a=d[b];e=a[#("7Q")];h=c[a[#("1rs")]];c[e+1]=h;c[e]=h[a[#("E2Pn")]];b=b+1;a=d[b];c[a[#("Je")]]=a[#("mCl")];b=b+1;a=d[b];e=a[#("d0")]c[e]=c[e](f(c,e+1,a[#("gjV")]))b=b+1;a=d[b];c[a[#("fa")]]=c[a[#("8zB")]][a[#("Bd3K")]];b=b+1;a=d[b];c[a[#("sV")]]=c[a[#("nBM")]][a[#("qfFn")]];b=b+1;a=d[b];e=a[#{"1 + 1 = 111";"1 + 1 = 111";}];h=c[a[#("f09")]];c[e+1]=h;c[e]=h[a[#("mgu8")]];b=b+1;a=d[b];c[a[#("CF")]]=c[a[#("PAY")]];b=b+1;a=d[b];c[a[#("eY")]]=c[a[#("myH")]];b=b+1;a=d[b];c[a[#{{832;334;698;556};{908;76;144;21};}]]=c[a[#("WXZ")]];b=b+1;a=d[b];e=a[#{{784;567;876;607};"1 + 1 = 111";}]c[e](f(c,e+1,a[#("8E5")]))b=b+1;a=d[b];c[a[#{"1 + 1 = 111";{403;742;931;746};}]]=g[a[#("mSU")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=a[#("dLO")];b=b+1;a=d[b];e=a[#("oB")]c[e](c[e+1])b=b+1;a=d[b];b=a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}];end;elseif e>#("Xx")then local a=a[#("dm")]c[a]=c[a](f(c,a+1,h))else local g;local e;c[a[#("yE")]]=a[#("xeW")];b=b+1;a=d[b];e=a[#("1k")]c[e]=c[e](f(c,e+1,a[#{"1 + 1 = 111";{735;25;516;749};"1 + 1 = 111";}]))b=b+1;a=d[b];e=a[#{"1 + 1 = 111";"1 + 1 = 111";}];g=c[a[#("Osg")]];c[e+1]=g;c[e]=g[a[#("Fq8Q")]];b=b+1;a=d[b];c[a[#("QS")]]=a[#("Mva")];b=b+1;a=d[b];e=a[#("h3")]c[e]=c[e](f(c,e+1,a[#("Ji7")]))b=b+1;a=d[b];e=a[#("3L")];g=c[a[#("FT9")]];c[e+1]=g;c[e]=g[a[#("XlW8")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=a[#("fps")];b=b+1;a=d[b];e=a[#("33")]c[e]=c[e](f(c,e+1,a[#{{328;587;614;298};{557;897;699;559};"1 + 1 = 111";}]))b=b+1;a=d[b];e=a[#("gf")];g=c[a[#{{866;457;471;800};"1 + 1 = 111";{270;440;510;792};}]];c[e+1]=g;c[e]=g[a[#("FzCc")]];b=b+1;a=d[b];c[a[#("Jd")]]=a[#("aXb")];end;elseif e<=#("WQrHo")then if e==#("7SNm")then local a=a[#("kz")]c[a](c[a+1])else c[a[#("uR")]]();end;elseif e==#("FfNXgA")then local b=a[#("5f")]c[b]=c[b](f(c,b+1,a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}]))else local a=a[#("8A")]c[a]=c[a]()end;elseif e<=#("CK722zg6N0Y")then if e<=#("qSoLxW9ga")then if e>#("7KlCURoN")then local h;local e;c[a[#("NH")]]=a[#("Lbh")];b=b+1;a=d[b];c[a[#("Mg")]]=a[#("KDG")];b=b+1;a=d[b];c[a[#("Lv")]]=g[a[#("n4E")]];b=b+1;a=d[b];e=a[#("iS")];h=c[a[#("ez5")]];c[e+1]=h;c[e]=h[a[#{{517;408;521;67};{673;107;926;845};{119;269;542;768};"1 + 1 = 111";}]];b=b+1;a=d[b];c[a[#("aE")]]=a[#{"1 + 1 = 111";{890;982;292;567};{108;379;327;583};}];b=b+1;a=d[b];e=a[#("kV")]c[e]=c[e](f(c,e+1,a[#("ae9")]))b=b+1;a=d[b];c[a[#{{504;440;827;545};{285;710;979;762};}]]=c[a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}]][a[#("SlFM")]];b=b+1;a=d[b];c[a[#{{805;129;240;983};"1 + 1 = 111";}]]=c[a[#("h5z")]][a[#("UIxP")]];b=b+1;a=d[b];e=a[#("kW")];h=c[a[#("EfW")]];c[e+1]=h;c[e]=h[a[#("gY3b")]];b=b+1;a=d[b];c[a[#("H8")]]=c[a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}]];b=b+1;a=d[b];c[a[#("px")]]=c[a[#("nZY")]];b=b+1;a=d[b];c[a[#("0q")]]=c[a[#("dzO")]];b=b+1;a=d[b];e=a[#("NE")]c[e](f(c,e+1,a[#("29x")]))b=b+1;a=d[b];c[a[#("U7")]]=g[a[#("it3")]];b=b+1;a=d[b];c[a[#("3b")]]=a[#("cdy")];b=b+1;a=d[b];e=a[#("zu")]c[e](c[e+1])b=b+1;a=d[b];b=a[#("sUv")];else local h;local e;c[a[#("UU")]]=g[a[#("Fhj")]];b=b+1;a=d[b];e=a[#("Ul")];h=c[a[#("M15")]];c[e+1]=h;c[e]=h[a[#{"1 + 1 = 111";{732;56;558;157};{425;379;198;318};{668;720;369;115};}]];b=b+1;a=d[b];c[a[#("t7")]]=a[#{"1 + 1 = 111";{279;302;52;75};{518;740;555;359};}];b=b+1;a=d[b];e=a[#{{43;510;704;181};"1 + 1 = 111";}]c[e]=c[e](f(c,e+1,a[#("qjb")]))b=b+1;a=d[b];c[a[#("vd")]]=c[a[#("OJ3")]][a[#("or5O")]];b=b+1;a=d[b];c[a[#("t3")]]=c[a[#("Ijn")]][a[#("1ODi")]];b=b+1;a=d[b];e=a[#("9j")];h=c[a[#("mpb")]];c[e+1]=h;c[e]=h[a[#("ir8p")]];b=b+1;a=d[b];c[a[#("nI")]]=c[a[#{"1 + 1 = 111";"1 + 1 = 111";{264;50;397;660};}]];b=b+1;a=d[b];e=a[#("gc")]c[e](f(c,e+1,a[#("EGt")]))b=b+1;a=d[b];c[a[#("yW")]]=g[a[#("pP9")]];b=b+1;a=d[b];c[a[#("NW")]]();b=b+1;a=d[b];b=a[#{{20;170;873;751};"1 + 1 = 111";{862;124;164;705};}];end;elseif e>#("mNDvXE3Y3A")then local e;c[a[#("9X")]]=g[a[#("MSq")]];b=b+1;a=d[b];c[a[#("kG")]]=c[a[#("bDM")]][a[#("sWxz")]];b=b+1;a=d[b];c[a[#("oG")]]=c[a[#("0nT")]][a[#("pYgx")]];b=b+1;a=d[b];c[a[#("vN")]]=c[a[#("39W")]][a[#("QFB7")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=c[a[#("01Y")]][a[#("df1S")]];b=b+1;a=d[b];c[a[#("uJ")]]=g[a[#("QoR")]];b=b+1;a=d[b];c[a[#("uz")]]=c[a[#("0fP")]][a[#("Aq1q")]];b=b+1;a=d[b];c[a[#("9G")]]=a[#("J3d")];b=b+1;a=d[b];c[a[#("dO")]]=a[#("EXI")];b=b+1;a=d[b];c[a[#("16")]]=a[#("9hc")];b=b+1;a=d[b];e=a[#("Ix")]c[e]=c[e](f(c,e+1,a[#("LrN")]))b=b+1;a=d[b];c[a[#("2x")]][a[#("W7c")]]=c[a[#("geol")]];b=b+1;a=d[b];do return end;else local h;local e;c[a[#("ij")]]=a[#("3Nj")];b=b+1;a=d[b];c[a[#("jV")]]=a[#("GtV")];b=b+1;a=d[b];c[a[#("32")]]=g[a[#("aGc")]];b=b+1;a=d[b];e=a[#("oB")];h=c[a[#("YNj")]];c[e+1]=h;c[e]=h[a[#("Z0Ob")]];b=b+1;a=d[b];c[a[#("4c")]]=a[#("jG2")];b=b+1;a=d[b];e=a[#("us")]c[e]=c[e](f(c,e+1,a[#("Csx")]))b=b+1;a=d[b];c[a[#("r9")]]=c[a[#("YdU")]][a[#("BHKB")]];b=b+1;a=d[b];c[a[#("bh")]]=c[a[#("LB7")]][a[#("AkJY")]];b=b+1;a=d[b];e=a[#("cy")];h=c[a[#("dAf")]];c[e+1]=h;c[e]=h[a[#("vmGp")]];b=b+1;a=d[b];c[a[#("iX")]]=c[a[#("U0R")]];b=b+1;a=d[b];c[a[#("xX")]]=c[a[#("bjD")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=c[a[#("ff6")]];b=b+1;a=d[b];e=a[#("Wl")]c[e](f(c,e+1,a[#("hQg")]))b=b+1;a=d[b];c[a[#("Hg")]]=g[a[#("f5Y")]];b=b+1;a=d[b];c[a[#("rY")]]=a[#("qBz")];b=b+1;a=d[b];e=a[#("F6")]c[e](c[e+1])b=b+1;a=d[b];b=a[#("KxW")];end;elseif e<=#("sh3F6fqFpbgth")then if e==#("MyRBOAR9RMFX")then local h;local e;c[a[#("7n")]]=g[a[#("Jk3")]];b=b+1;a=d[b];e=a[#{"1 + 1 = 111";"1 + 1 = 111";}];h=c[a[#("Hnm")]];c[e+1]=h;c[e]=h[a[#("cBpW")]];b=b+1;a=d[b];c[a[#("9h")]]=a[#("YTf")];b=b+1;a=d[b];e=a[#{"1 + 1 = 111";"1 + 1 = 111";}]c[e]=c[e](f(c,e+1,a[#("Z3N")]))b=b+1;a=d[b];c[a[#("dU")]]=c[a[#("hWq")]][a[#("c4f7")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";{340;156;73;119};}]]=c[a[#("uRW")]][a[#("kK53")]];b=b+1;a=d[b];e=a[#("Nr")];h=c[a[#("LFP")]];c[e+1]=h;c[e]=h[a[#{{983;701;86;831};{32;209;43;140};"1 + 1 = 111";"1 + 1 = 111";}]];b=b+1;a=d[b];c[a[#("XI")]]=c[a[#("CpJ")]];b=b+1;a=d[b];e=a[#("TU")]c[e](f(c,e+1,a[#("y44")]))b=b+1;a=d[b];c[a[#("NU")]]=g[a[#("mIB")]];b=b+1;a=d[b];c[a[#("PH")]]();b=b+1;a=d[b];b=a[#("DYC")];else do return end;end;elseif e<=#("ChE8gQSb0QQGOB")then local e;c[a[#("Rl")]]=g[a[#("0GW")]];b=b+1;a=d[b];c[a[#("lf")]]=c[a[#("XPu")]][a[#("HGBs")]];b=b+1;a=d[b];c[a[#("ON")]]=c[a[#("f0o")]][a[#{"1 + 1 = 111";{490;249;465;387};{990;684;818;728};"1 + 1 = 111";}]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=c[a[#("yVX")]][a[#{{740;253;768;474};"1 + 1 = 111";{151;38;837;47};{508;415;2;154};}]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=c[a[#{"1 + 1 = 111";{367;547;9;476};{941;464;888;811};}]][a[#("zL2C")]];b=b+1;a=d[b];c[a[#("KM")]]=g[a[#("jA4")]];b=b+1;a=d[b];c[a[#("I2")]]=c[a[#("8TH")]][a[#("GBMa")]];b=b+1;a=d[b];c[a[#("bj")]]=a[#("vyD")];b=b+1;a=d[b];c[a[#("8J")]]=a[#("oAr")];b=b+1;a=d[b];c[a[#("Ex")]]=a[#{{950;773;696;785};"1 + 1 = 111";"1 + 1 = 111";}];b=b+1;a=d[b];e=a[#("SZ")]c[e]=c[e](f(c,e+1,a[#("4WK")]))b=b+1;a=d[b];c[a[#("6v")]][a[#("QdG")]]=c[a[#("0pQX")]];b=b+1;a=d[b];do return end;elseif e==#("xigtunkfmxpaMsA")then b=a[#("Vzv")];else local e;c[a[#("EE")]]=g[a[#("73m")]];b=b+1;a=d[b];c[a[#("D8")]]=c[a[#("M1z")]][a[#("EYtY")]];b=b+1;a=d[b];c[a[#("Wz")]]=c[a[#{"1 + 1 = 111";{120;106;922;585};"1 + 1 = 111";}]][a[#("H96S")]];b=b+1;a=d[b];c[a[#("bD")]]=c[a[#("ySM")]][a[#("u1E3")]];b=b+1;a=d[b];c[a[#("Hd")]]=c[a[#("DSs")]][a[#("MKjD")]];b=b+1;a=d[b];c[a[#("xh")]]=g[a[#("ydP")]];b=b+1;a=d[b];c[a[#("VP")]]=c[a[#("Zyo")]][a[#("n96D")]];b=b+1;a=d[b];c[a[#{{693;388;702;740};"1 + 1 = 111";}]]=a[#("nfX")];b=b+1;a=d[b];c[a[#("vj")]]=a[#("c4J")];b=b+1;a=d[b];c[a[#("RQ")]]=a[#("n1D")];b=b+1;a=d[b];e=a[#("Fs")]c[e]=c[e](f(c,e+1,a[#("3CO")]))b=b+1;a=d[b];c[a[#("Xf")]][a[#("v2j")]]=c[a[#("f3Ae")]];b=b+1;a=d[b];do return end;end;elseif e<=#("aiTZxVdaNAgWRa5986NIGkCjq")then if e<=#{"1 + 1 = 111";"1 + 1 = 111";{230;257;753;852};{538;632;178;991};{633;16;450;271};{942;303;366;760};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{526;533;258;183};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{780;489;864;450};{837;551;566;260};{787;78;499;844};{449;116;355;218};"1 + 1 = 111";"1 + 1 = 111";}then if e<=#("lCqbQQ2W0QKIvECj7t")then if e==#("vsvIdxJbDAEHb2Nfj")then local h;local e;c[a[#("if")]]=a[#("BI8")];b=b+1;a=d[b];c[a[#("bo")]]=a[#{{254;792;734;700};{678;855;913;114};"1 + 1 = 111";}];b=b+1;a=d[b];c[a[#("y6")]]=g[a[#("nZL")]];b=b+1;a=d[b];e=a[#{"1 + 1 = 111";{370;297;157;184};}];h=c[a[#("ME0")]];c[e+1]=h;c[e]=h[a[#("8cqV")]];b=b+1;a=d[b];c[a[#("pu")]]=a[#{{563;748;393;956};"1 + 1 = 111";{785;76;660;236};}];b=b+1;a=d[b];e=a[#("5l")]c[e]=c[e](f(c,e+1,a[#("jqU")]))b=b+1;a=d[b];c[a[#("GJ")]]=c[a[#("pBx")]][a[#("eok2")]];b=b+1;a=d[b];c[a[#("qg")]]=c[a[#("zHb")]][a[#("zOjg")]];b=b+1;a=d[b];e=a[#("yf")];h=c[a[#("orF")]];c[e+1]=h;c[e]=h[a[#("P7TE")]];b=b+1;a=d[b];c[a[#("0H")]]=c[a[#("gV1")]];b=b+1;a=d[b];c[a[#("jU")]]=c[a[#("TPh")]];b=b+1;a=d[b];c[a[#("9o")]]=c[a[#("qop")]];b=b+1;a=d[b];e=a[#{{393;375;190;973};{400;868;159;929};}]c[e](f(c,e+1,a[#("LLi")]))b=b+1;a=d[b];c[a[#("rI")]]=g[a[#("mQY")]];b=b+1;a=d[b];c[a[#("BW")]]=a[#("XxW")];b=b+1;a=d[b];e=a[#("6C")]c[e](c[e+1])b=b+1;a=d[b];b=a[#("TpF")];else c[a[#("TJ")]]=(a[#("YN9")]~=0);end;elseif e==#("OAcINZRvdbhN6TLTcf0")then c[a[#("Bq")]]=k(j[a[#("9l6")]],nil,g);else c[a[#("12")]]=a[#("LSU")];end;elseif e<=#("mOhPzxviIQTysKs3vYPG1S")then if e==#("H40DU6s0Hpqx9sxiqEIYy")then local e;c[a[#("eN")]]=g[a[#("ivu")]];b=b+1;a=d[b];c[a[#("aH")]]=c[a[#{"1 + 1 = 111";{986;762;319;642};"1 + 1 = 111";}]][a[#("pgmk")]];b=b+1;a=d[b];c[a[#("5A")]]=c[a[#("yjU")]][a[#("F212")]];b=b+1;a=d[b];c[a[#("xp")]]=c[a[#("Du1")]][a[#("NK2F")]];b=b+1;a=d[b];c[a[#("Ql")]]=c[a[#("8mn")]][a[#("rKSs")]];b=b+1;a=d[b];c[a[#("qo")]]=g[a[#("jBK")]];b=b+1;a=d[b];c[a[#{{139;131;928;195};{449;120;880;415};}]]=c[a[#("o4A")]][a[#("xzqJ")]];b=b+1;a=d[b];c[a[#("MC")]]=a[#("P5q")];b=b+1;a=d[b];c[a[#("zg")]]=a[#("5tb")];b=b+1;a=d[b];c[a[#("cS")]]=a[#("bVE")];b=b+1;a=d[b];e=a[#("Bi")]c[e]=c[e](f(c,e+1,a[#("5Rs")]))b=b+1;a=d[b];c[a[#("dP")]][a[#("2B2")]]=c[a[#("J0Zd")]];b=b+1;a=d[b];do return end;else do return end;end;elseif e<=#("TtvBSxnAtbFuKVI3LmoZmic")then if not c[a[#("qq")]]then b=b+1;else b=a[#("tlp")];end;elseif e>#("tK9Pzct36olGhtn6Mg6o2PTM")then c[a[#{{449;654;732;169};"1 + 1 = 111";}]]=(a[#("Fqu")]~=0);else if c[a[#("aK")]]then b=b+1;else b=a[#("WRX")];end;end;elseif e<=#("y2uJIfKrjhhxIbqSLyvKbWq8rnflX")then if e<=#("O1xebj8uziLo7mgJeePHrqycIMM")then if e==#("ruazEZDpaDahTq9m8XYd2SiaHq")then local e;c[a[#("nc")]]=g[a[#("H4i")]];b=b+1;a=d[b];c[a[#("Rk")]]=c[a[#("2qN")]][a[#("hk6C")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";{636;905;242;834};}]]=c[a[#("sAS")]][a[#("2Zfj")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=c[a[#("SDJ")]][a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{909;289;781;662};}]];b=b+1;a=d[b];c[a[#("GM")]]=c[a[#("i5V")]][a[#("YWOU")]];b=b+1;a=d[b];c[a[#("A2")]]=g[a[#("cVg")]];b=b+1;a=d[b];c[a[#("S6")]]=c[a[#("P29")]][a[#("epAb")]];b=b+1;a=d[b];c[a[#("VN")]]=a[#("9uP")];b=b+1;a=d[b];c[a[#("s9")]]=a[#("8no")];b=b+1;a=d[b];c[a[#("ai")]]=a[#{"1 + 1 = 111";{117;829;361;504};{568;649;604;272};}];b=b+1;a=d[b];e=a[#("8L")]c[e]=c[e](f(c,e+1,a[#("YSv")]))b=b+1;a=d[b];c[a[#("Cl")]][a[#("DdQ")]]=c[a[#("0ZO6")]];b=b+1;a=d[b];do return end;else local h;local e;c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=a[#{{972;70;431;220};{731;987;977;312};"1 + 1 = 111";}];b=b+1;a=d[b];c[a[#("D4")]]=a[#("69o")];b=b+1;a=d[b];c[a[#("sA")]]=g[a[#("XPY")]];b=b+1;a=d[b];e=a[#("6V")];h=c[a[#{"1 + 1 = 111";{734;982;310;636};"1 + 1 = 111";}]];c[e+1]=h;c[e]=h[a[#{"1 + 1 = 111";{571;186;126;586};{358;815;642;5};"1 + 1 = 111";}]];b=b+1;a=d[b];c[a[#("KC")]]=a[#("Uyo")];b=b+1;a=d[b];e=a[#("Os")]c[e]=c[e](f(c,e+1,a[#("nI4")]))b=b+1;a=d[b];c[a[#("eD")]]=c[a[#("ii9")]][a[#("CNAI")]];b=b+1;a=d[b];c[a[#("1y")]]=c[a[#("zma")]][a[#("DFIn")]];b=b+1;a=d[b];e=a[#("dF")];h=c[a[#("l76")]];c[e+1]=h;c[e]=h[a[#("8gls")]];b=b+1;a=d[b];c[a[#("TP")]]=c[a[#("WYz")]];b=b+1;a=d[b];c[a[#("sd")]]=c[a[#("9Dn")]];b=b+1;a=d[b];c[a[#("vY")]]=c[a[#("bWv")]];b=b+1;a=d[b];e=a[#("kp")]c[e](f(c,e+1,a[#("Iyi")]))b=b+1;a=d[b];c[a[#{{575;701;191;71};"1 + 1 = 111";}]]=g[a[#{{163;908;8;1};"1 + 1 = 111";{442;661;604;457};}]];b=b+1;a=d[b];c[a[#("tx")]]=a[#("7pS")];b=b+1;a=d[b];e=a[#("sB")]c[e](c[e+1])b=b+1;a=d[b];b=a[#("a4x")];end;elseif e==#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{602;868;451;716};{603;779;257;427};"1 + 1 = 111";"1 + 1 = 111";{755;37;594;779};"1 + 1 = 111";{867;186;312;337};{442;498;178;501};"1 + 1 = 111";"1 + 1 = 111";{334;688;81;386};"1 + 1 = 111";{412;42;541;515};{138;61;524;196};"1 + 1 = 111";"1 + 1 = 111";{92;746;841;373};{955;434;423;219};{337;325;741;56};"1 + 1 = 111";"1 + 1 = 111";}then b=a[#("PlZ")];else c[a[#("Qu")]]=g[a[#("bcm")]];end;elseif e<=#("l92mWfWQ6KJgn5dWbQtbjI68DcfsqVM")then if e>#("hE3juIvOe3OF8QXvgqUhoDzNd3TU9E")then c[a[#("oy")]][a[#("8pG")]]=c[a[#("Wle7")]];else local h;local e;c[a[#("OU")]]=a[#("tbq")];b=b+1;a=d[b];c[a[#("xz")]]=a[#("XjV")];b=b+1;a=d[b];c[a[#("IJ")]]=g[a[#{{487;282;8;791};{77;762;193;412};{109;887;336;553};}]];b=b+1;a=d[b];e=a[#("uO")];h=c[a[#("jXj")]];c[e+1]=h;c[e]=h[a[#("2V5m")]];b=b+1;a=d[b];c[a[#("nn")]]=a[#("gM7")];b=b+1;a=d[b];e=a[#("fE")]c[e]=c[e](f(c,e+1,a[#{{820;492;706;153};"1 + 1 = 111";"1 + 1 = 111";}]))b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=c[a[#("6bY")]][a[#("dkig")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=c[a[#("lmh")]][a[#("jLQz")]];b=b+1;a=d[b];e=a[#{{778;530;275;766};{641;826;549;543};}];h=c[a[#("Qc0")]];c[e+1]=h;c[e]=h[a[#("kxgq")]];b=b+1;a=d[b];c[a[#{{820;244;834;609};{994;563;230;993};}]]=c[a[#("8ua")]];b=b+1;a=d[b];c[a[#("Ke")]]=c[a[#("juH")]];b=b+1;a=d[b];c[a[#("SS")]]=c[a[#("zZj")]];b=b+1;a=d[b];e=a[#{"1 + 1 = 111";{978;772;640;747};}]c[e](f(c,e+1,a[#("3Q0")]))b=b+1;a=d[b];c[a[#("Ls")]]=g[a[#("sBP")]];b=b+1;a=d[b];c[a[#("D9")]]=a[#("XBA")];b=b+1;a=d[b];e=a[#("Ie")]c[e](c[e+1])b=b+1;a=d[b];b=a[#("vpZ")];end;elseif e<=#("l8J9Tc4CDtP6q4B9XoTlabFVOepgBZMP")then local b=a[#("dK")]c[b](f(c,b+1,a[#("Xot")]))elseif e==#("FCGARdtmYqYJHiTM36FprzkEYuOWYbORa")then local e;c[a[#("oM")]]=g[a[#("6nH")]];b=b+1;a=d[b];c[a[#("SC")]]=c[a[#("Mg5")]][a[#("KRmV")]];b=b+1;a=d[b];c[a[#("6B")]]=c[a[#("fEB")]][a[#("UNvH")]];b=b+1;a=d[b];c[a[#("vF")]]=c[a[#("2JM")]][a[#("D8ZB")]];b=b+1;a=d[b];c[a[#("AU")]]=c[a[#("xVp")]][a[#("RSmC")]];b=b+1;a=d[b];c[a[#("bG")]]=g[a[#("yij")]];b=b+1;a=d[b];c[a[#("JG")]]=c[a[#("4oG")]][a[#("rvCX")]];b=b+1;a=d[b];c[a[#("mb")]]=a[#("FQ7")];b=b+1;a=d[b];c[a[#("gT")]]=a[#("Gdr")];b=b+1;a=d[b];c[a[#("ry")]]=a[#("ieV")];b=b+1;a=d[b];e=a[#("19")]c[e]=c[e](f(c,e+1,a[#("F4M")]))b=b+1;a=d[b];c[a[#("Dv")]][a[#("9s3")]]=c[a[#("yAWE")]];b=b+1;a=d[b];do return end;else local h;local e;c[a[#("F9")]]=g[a[#("NuE")]];b=b+1;a=d[b];e=a[#("1N")];h=c[a[#{{76;613;797;791};{271;272;940;519};{27;224;454;35};}]];c[e+1]=h;c[e]=h[a[#("AfXt")]];b=b+1;a=d[b];c[a[#("np")]]=a[#("d90")];b=b+1;a=d[b];e=a[#("yc")]c[e]=c[e](f(c,e+1,a[#("Kcp")]))b=b+1;a=d[b];c[a[#("jG")]]=c[a[#("HrM")]][a[#("kIk6")]];b=b+1;a=d[b];c[a[#("QF")]]=c[a[#("r7x")]][a[#("AZL0")]];b=b+1;a=d[b];e=a[#{"1 + 1 = 111";{220;392;966;19};}];h=c[a[#("adU")]];c[e+1]=h;c[e]=h[a[#("kVpL")]];b=b+1;a=d[b];c[a[#("pM")]]=c[a[#("G0I")]];b=b+1;a=d[b];e=a[#("OO")]c[e](f(c,e+1,a[#("vUp")]))b=b+1;a=d[b];c[a[#{{74;484;281;944};"1 + 1 = 111";}]]=g[a[#("m5j")]];b=b+1;a=d[b];c[a[#("b6")]]();b=b+1;a=d[b];b=a[#("tDL")];end;elseif e<=#("WC4KflA9lURlh6HEH2hzsgrcLxzHzXMgJkxqRt1t0smAXMmSptE")then if e<=#("KLdQk28TW2KyiKN7JpXnbYJ931p9kRret0H8hRgZui")then if e<=#("7SYrm9pj9GpUVcdWtM9IfLGesdOZ1i833qLqeJ")then if e<=#{{194;918;148;721};{743;896;690;680};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{599;449;398;435};{569;878;980;828};{386;431;464;641};{123;72;664;870};{553;972;967;123};{959;771;245;75};{460;179;967;770};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{457;371;516;302};{720;570;915;903};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{85;621;930;980};"1 + 1 = 111";"1 + 1 = 111";{453;772;746;22};"1 + 1 = 111";"1 + 1 = 111";{653;713;974;193};{569;777;846;608};{838;287;192;272};"1 + 1 = 111";{47;16;901;863};"1 + 1 = 111";}then if e==#("s6bmrSV7vVHtYoduK3QFpBaQnpFrmcOx64d")then c[a[#("gG")]]=c[a[#("nyM")]][a[#("DkO0")]];else local a=a[#("pS")]c[a]=c[a](f(c,a+1,h))end;elseif e==#("SW2MOuFWZIRmSxjPsir25v8bnEUsgky3kXNYb")then local b=a[#("s9")]c[b](f(c,b+1,a[#("OmW")]))else local h;local e;c[a[#("gT")]]=g[a[#("ReF")]];b=b+1;a=d[b];e=a[#("ti")];h=c[a[#("7lc")]];c[e+1]=h;c[e]=h[a[#("opAN")]];b=b+1;a=d[b];c[a[#("hl")]]=a[#("tpr")];b=b+1;a=d[b];e=a[#("Ar")]c[e]=c[e](f(c,e+1,a[#("Cob")]))b=b+1;a=d[b];c[a[#("1p")]]=c[a[#("Wem")]][a[#("t01t")]];b=b+1;a=d[b];c[a[#("Im")]]=c[a[#("ijE")]][a[#("ykG0")]];b=b+1;a=d[b];c[a[#("up")]]=g[a[#("vne")]];b=b+1;a=d[b];e=a[#("rv")];h=c[a[#("BqZ")]];c[e+1]=h;c[e]=h[a[#("iHqf")]];b=b+1;a=d[b];c[a[#{{278;481;796;908};{26;788;340;737};}]]=a[#("e05")];b=b+1;a=d[b];e=a[#{{612;645;96;341};"1 + 1 = 111";}]c[e]=c[e](f(c,e+1,a[#("pKm")]))b=b+1;a=d[b];c[a[#("k1")]]=c[a[#{{835;1;160;648};"1 + 1 = 111";"1 + 1 = 111";}]][a[#{"1 + 1 = 111";{555;671;869;746};"1 + 1 = 111";{709;767;424;928};}]];b=b+1;a=d[b];c[a[#{{797;814;338;955};"1 + 1 = 111";}]]=c[a[#{"1 + 1 = 111";"1 + 1 = 111";{488;142;865;708};}]][a[#("Nkky")]];b=b+1;a=d[b];e=a[#("bu")];h=c[a[#("xWR")]];c[e+1]=h;c[e]=h[a[#("oB67")]];b=b+1;a=d[b];c[a[#("jZ")]]=c[a[#("akJ")]];b=b+1;a=d[b];c[a[#("bL")]]=c[a[#("KQu")]];b=b+1;a=d[b];e=a[#("fo")]c[e](f(c,e+1,a[#("hAG")]))b=b+1;a=d[b];c[a[#("jS")]]=g[a[#{"1 + 1 = 111";{767;707;223;351};"1 + 1 = 111";}]];b=b+1;a=d[b];c[a[#("48")]]();b=b+1;a=d[b];b=a[#("tUL")];end;elseif e<=#{{471;770;990;671};{498;232;21;683};{375;117;789;797};"1 + 1 = 111";{442;643;661;466};{905;582;707;277};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{510;377;741;141};{83;852;734;836};{379;898;436;487};{466;849;690;502};{519;507;860;833};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{632;411;746;565};{426;738;871;849};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{906;27;637;43};{544;638;4;213};{407;554;456;976};{69;331;854;732};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{689;680;909;977};{439;907;297;872};"1 + 1 = 111";"1 + 1 = 111";}then if e==#("554AifKq9DpakQQvTJlGVqNfHu0FroN2FyDoQWH")then local h;local e;c[a[#("8Z")]]=g[a[#("1lS")]];b=b+1;a=d[b];e=a[#("KE")];h=c[a[#("bAN")]];c[e+1]=h;c[e]=h[a[#("5iHd")]];b=b+1;a=d[b];c[a[#{{356;705;657;606};{353;730;340;517};}]]=a[#("Hfp")];b=b+1;a=d[b];e=a[#("Rp")]c[e]=c[e](f(c,e+1,a[#("Kps")]))b=b+1;a=d[b];c[a[#("qc")]]=c[a[#("qyQ")]][a[#{"1 + 1 = 111";{444;701;462;514};"1 + 1 = 111";{658;200;261;505};}]];b=b+1;a=d[b];c[a[#("FG")]]=c[a[#("oD3")]][a[#("9oz8")]];b=b+1;a=d[b];e=a[#("Dk")];h=c[a[#("SfO")]];c[e+1]=h;c[e]=h[a[#("54J0")]];b=b+1;a=d[b];c[a[#("Ep")]]=c[a[#("odP")]];b=b+1;a=d[b];e=a[#("CU")]c[e](f(c,e+1,a[#("lFS")]))b=b+1;a=d[b];c[a[#("U1")]]=g[a[#("COG")]];b=b+1;a=d[b];c[a[#("rp")]]=a[#("dym")];b=b+1;a=d[b];e=a[#("s0")]c[e](c[e+1])b=b+1;a=d[b];b=a[#{"1 + 1 = 111";{128;401;838;814};"1 + 1 = 111";}];else c[a[#("GB")]]=k(j[a[#("Qpv")]],nil,g);end;elseif e==#("KHbCEvDJLamhsWRPrY3Xpf9VZyGXmCP7cM6oolMk2")then c[a[#("Ar")]]();else local e;c[a[#("Hu")]]=g[a[#("eb7")]];b=b+1;a=d[b];c[a[#("nY")]]=c[a[#("spm")]][a[#("FNKR")]];b=b+1;a=d[b];c[a[#("jO")]]=c[a[#("VBS")]][a[#("jPEI")]];b=b+1;a=d[b];c[a[#("NB")]]=c[a[#("AOD")]][a[#("6nJF")]];b=b+1;a=d[b];c[a[#("sF")]]=c[a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}]][a[#("9amd")]];b=b+1;a=d[b];c[a[#("Mi")]]=g[a[#("1FG")]];b=b+1;a=d[b];c[a[#("sh")]]=c[a[#("p1s")]][a[#("FCMo")]];b=b+1;a=d[b];c[a[#("dA")]]=a[#("OEG")];b=b+1;a=d[b];c[a[#("H7")]]=a[#("STH")];b=b+1;a=d[b];c[a[#("X9")]]=a[#("HtG")];b=b+1;a=d[b];e=a[#{{59;337;924;748};{609;743;476;315};}]c[e]=c[e](f(c,e+1,a[#("CLA")]))b=b+1;a=d[b];c[a[#("S7")]][a[#("QTL")]]=c[a[#("yVmA")]];b=b+1;a=d[b];do return end;end;elseif e<=#("3qbGJSRY622UtFIqNgZPvjvofRZCAgmS47lSTtZXgzGWer")then if e<=#("CR8IFum6U5WA22oyZQkZxsZHsqcJ6NJkXzyUCIRxRbCW")then if e==#("3641bQg4D5i2BposOagxMMEFF6r9Xhu1cLzuhR57Cpu")then local h;local e;c[a[#("An")]]=a[#("zxN")];b=b+1;a=d[b];c[a[#("KK")]]=g[a[#("YUe")]];b=b+1;a=d[b];e=a[#("GP")];h=c[a[#("Gfi")]];c[e+1]=h;c[e]=h[a[#("u2ge")]];b=b+1;a=d[b];c[a[#("fa")]]=a[#("7xr")];b=b+1;a=d[b];e=a[#("T4")]c[e]=c[e](f(c,e+1,a[#("4SV")]))b=b+1;a=d[b];c[a[#("fh")]]=c[a[#("gsI")]][a[#("rI0Y")]];b=b+1;a=d[b];c[a[#("EE")]]=c[a[#("9ok")]][a[#("3EUy")]];b=b+1;a=d[b];e=a[#("vR")];h=c[a[#("f3l")]];c[e+1]=h;c[e]=h[a[#("VQ4q")]];b=b+1;a=d[b];c[a[#("bv")]]=c[a[#("qWC")]];b=b+1;a=d[b];c[a[#("gL")]]=c[a[#("1vk")]];b=b+1;a=d[b];e=a[#("5L")]c[e](f(c,e+1,a[#("P8O")]))b=b+1;a=d[b];c[a[#("Pl")]]=g[a[#("lfo")]];b=b+1;a=d[b];c[a[#("ZS")]]();b=b+1;a=d[b];b=a[#{"1 + 1 = 111";"1 + 1 = 111";{974;940;35;114};}];else local a=a[#("bH")]c[a](c[a+1])end;elseif e==#("o2asDedbuAtrDAxeyhguLrZ003l7ei4vqbpM68GTetHNq")then local e;c[a[#("kC")]]=g[a[#("84A")]];b=b+1;a=d[b];c[a[#("0d")]]=c[a[#{{290;599;988;52};"1 + 1 = 111";"1 + 1 = 111";}]][a[#("5RGA")]];b=b+1;a=d[b];c[a[#{{447;378;678;705};{639;809;168;30};}]]=c[a[#("JXD")]][a[#("dbvU")]];b=b+1;a=d[b];c[a[#("So")]]=c[a[#("4Lk")]][a[#("yDeS")]];b=b+1;a=d[b];c[a[#("ae")]]=c[a[#("5aA")]][a[#("dhEO")]];b=b+1;a=d[b];c[a[#("eJ")]]=g[a[#("HXb")]];b=b+1;a=d[b];c[a[#("Hz")]]=c[a[#("Pgc")]][a[#("Ckzk")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=a[#("af7")];b=b+1;a=d[b];c[a[#("Xe")]]=a[#("moJ")];b=b+1;a=d[b];c[a[#("xq")]]=a[#("vvC")];b=b+1;a=d[b];e=a[#("NC")]c[e]=c[e](f(c,e+1,a[#("jMz")]))b=b+1;a=d[b];c[a[#("jk")]][a[#("FbH")]]=c[a[#("bSoL")]];b=b+1;a=d[b];do return end;else local g;local e;e=a[#("3l")];g=c[a[#("4dj")]];c[e+1]=g;c[e]=g[a[#("R05C")]];b=b+1;a=d[b];c[a[#("Kt")]]=a[#("ShA")];b=b+1;a=d[b];e=a[#("Dn")]c[e]=c[e](f(c,e+1,a[#("3rB")]))b=b+1;a=d[b];e=a[#("eO")];g=c[a[#("vrJ")]];c[e+1]=g;c[e]=g[a[#("NxQR")]];b=b+1;a=d[b];c[a[#("zV")]]=a[#("0GA")];b=b+1;a=d[b];e=a[#("sE")]c[e]=c[e](f(c,e+1,a[#("cYZ")]))b=b+1;a=d[b];e=a[#("RV")];g=c[a[#("I8z")]];c[e+1]=g;c[e]=g[a[#("qmf5")]];b=b+1;a=d[b];c[a[#("Ic")]]=a[#("yjN")];b=b+1;a=d[b];c[a[#("xA")]]=a[#("JD9")];end;elseif e<=#("2Rt0Juja17dkDJ2g6lF8aBjVizLyprVlJSbENoJKmqjsIVG7")then if e>#("8xuishBHJSjTVUKl2LUIzDSM5VUr1mx3OHr4BcqLK6dHA0B")then c[a[#("Fe")]]=c[a[#("6Oo")]];else local b=a[#("H0")]local d,a=i(c[b](f(c,b+1,a[#{{37;145;429;584};"1 + 1 = 111";"1 + 1 = 111";}])))h=a+b-1 local a=0;for b=b,h do a=a+1;c[b]=d[a];end;end;elseif e<=#("JhQkWACFPSnHyjQxuqfoDQVZtj7CAkmetnSUHmgoeWoSZUnBq")then local b=a[#("qk")]c[b]=c[b](f(c,b+1,a[#{{829;541;729;618};{23;466;71;33};{825;805;725;986};}]))elseif e==#("liUmc3v00NCafEGimjB6Zhk1jRCdaK6GkS8euhlZyQxEWeQUmQ")then local a=a[#("67")]c[a]=c[a]()else local e;c[a[#{"1 + 1 = 111";{557;173;973;116};}]]=g[a[#("c5b")]];b=b+1;a=d[b];c[a[#("dT")]]=c[a[#("M1H")]][a[#("BAbg")]];b=b+1;a=d[b];c[a[#("K8")]]=c[a[#{"1 + 1 = 111";"1 + 1 = 111";{568;959;225;332};}]][a[#("Omp1")]];b=b+1;a=d[b];c[a[#("rt")]]=c[a[#("SEW")]][a[#("Usu3")]];b=b+1;a=d[b];c[a[#("XD")]]=c[a[#("OWj")]][a[#("vWVJ")]];b=b+1;a=d[b];c[a[#("8v")]]=g[a[#("sMH")]];b=b+1;a=d[b];c[a[#("sn")]]=c[a[#("qu1")]][a[#("IINY")]];b=b+1;a=d[b];c[a[#("a7")]]=a[#("xVP")];b=b+1;a=d[b];c[a[#("KH")]]=a[#("2H3")];b=b+1;a=d[b];c[a[#("ni")]]=a[#("iOc")];b=b+1;a=d[b];e=a[#("Ux")]c[e]=c[e](f(c,e+1,a[#("53S")]))b=b+1;a=d[b];c[a[#("ds")]][a[#("3Fv")]]=c[a[#("RBW1")]];b=b+1;a=d[b];do return end;end;elseif e<=#("dau1e72cuCs0pR6ZxGBYe7MIjVQffaR1tc2G014gCf0yf0gX0otoV2DgyXSs")then if e<=#("X6uUBGnZA9GLuv9goCtO3p1RDfBKVhciLZOiGNPt38AoXNBHDajvzOy")then if e<=#("fNqufNdr7x9FR1KLX9V5ZM3ZP4gV8RU6Cgc3xtnp4hrAN5ZMAIIz3")then if e==#("SDTCQlGrtpNcdLYRoEVFaSuElUeFvAiud9yJj4OcUMYbXK2oYTte")then c[a[#("uF")]]=a[#("LSA")];else local g;local e;e=a[#("KW")]c[e](c[e+1])b=b+1;a=d[b];e=a[#("jn")];g=c[a[#("KmK")]];c[e+1]=g;c[e]=g[a[#("oeDQ")]];b=b+1;a=d[b];c[a[#("ZT")]]=a[#("zYS")];b=b+1;a=d[b];e=a[#("Es")]c[e]=c[e](f(c,e+1,a[#("93T")]))b=b+1;a=d[b];e=a[#("oO")];g=c[a[#("561")]];c[e+1]=g;c[e]=g[a[#("MQha")]];b=b+1;a=d[b];c[a[#("ky")]]=a[#("LtL")];b=b+1;a=d[b];e=a[#("XD")]c[e]=c[e](f(c,e+1,a[#{{453;312;921;706};"1 + 1 = 111";{705;20;657;102};}]))b=b+1;a=d[b];e=a[#("Mv")];g=c[a[#("4js")]];c[e+1]=g;c[e]=g[a[#("FLd4")]];b=b+1;a=d[b];c[a[#("5H")]]=a[#("8Hc")];b=b+1;a=d[b];e=a[#("AU")]c[e]=c[e](f(c,e+1,a[#("uGn")]))end;elseif e>#("yCaipp5hb63hs9emoItZTVy3tRM1ZRMgdRQHyB3PS5SP43FLYcJlao")then local h;local e;c[a[#("MN")]]=a[#("7Dd")];b=b+1;a=d[b];c[a[#("0T")]]=a[#("6VS")];b=b+1;a=d[b];c[a[#("C1")]]=g[a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}]];b=b+1;a=d[b];e=a[#("yU")];h=c[a[#("OkT")]];c[e+1]=h;c[e]=h[a[#("tbXv")]];b=b+1;a=d[b];c[a[#("AU")]]=a[#("gAy")];b=b+1;a=d[b];e=a[#("UG")]c[e]=c[e](f(c,e+1,a[#("nkG")]))b=b+1;a=d[b];c[a[#("Y2")]]=c[a[#("G6r")]][a[#("FCHV")]];b=b+1;a=d[b];c[a[#("YI")]]=c[a[#("0ei")]][a[#("2XnD")]];b=b+1;a=d[b];e=a[#{"1 + 1 = 111";{47;404;135;90};}];h=c[a[#("Skn")]];c[e+1]=h;c[e]=h[a[#("mAzT")]];b=b+1;a=d[b];c[a[#("Mn")]]=c[a[#("qrd")]];b=b+1;a=d[b];c[a[#("XA")]]=c[a[#("T6p")]];b=b+1;a=d[b];c[a[#("n2")]]=c[a[#("Suh")]];b=b+1;a=d[b];e=a[#("9z")]c[e](f(c,e+1,a[#("YVI")]))b=b+1;a=d[b];c[a[#("sS")]]=g[a[#("ifC")]];b=b+1;a=d[b];c[a[#("pz")]]=a[#("7YY")];b=b+1;a=d[b];e=a[#("zl")]c[e](c[e+1])b=b+1;a=d[b];b=a[#("Epl")];else c[a[#("al")]]=c[a[#{"1 + 1 = 111";{663;981;163;297};"1 + 1 = 111";}]];end;elseif e<=#("MdgYJOdsutXdLtHYXOOhYdT8AladWhBfYXdEqNtbOMxuh03rroVHvhgJu")then if e==#("yxNaGm3RoXpcHktMElQy1KsTWIv4URRFiio6zOgjCBLgboRLmTO427qY")then c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]][a[#("7La")]]=c[a[#("P0OX")]];else g[a[#("vzz")]]=c[a[#("pX")]];end;elseif e<=#{{26;219;301;277};"1 + 1 = 111";{162;243;714;898};{227;374;890;215};{818;265;90;930};{938;685;963;19};"1 + 1 = 111";{12;685;115;493};{182;438;546;308};{469;118;86;320};"1 + 1 = 111";{370;402;564;771};"1 + 1 = 111";"1 + 1 = 111";{473;788;73;394};{923;478;155;694};"1 + 1 = 111";{552;463;561;269};"1 + 1 = 111";{396;298;609;896};"1 + 1 = 111";{198;960;813;165};"1 + 1 = 111";{194;891;852;371};{614;472;821;699};{342;43;570;724};{276;470;317;271};{469;600;304;247};{785;867;661;41};"1 + 1 = 111";"1 + 1 = 111";{54;200;113;724};"1 + 1 = 111";{597;77;451;518};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{477;703;320;979};{379;807;635;183};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{395;51;949;664};"1 + 1 = 111";{625;86;969;23};{143;690;833;646};"1 + 1 = 111";{787;991;815;351};{917;813;823;923};{539;910;857;10};{295;22;160;709};"1 + 1 = 111";{223;76;770;609};{634;817;536;178};}then local d=a[#{{10;907;390;3};{175;790;330;710};}];local b=c[a[#("41H")]];c[d+1]=b;c[d]=b[a[#("POUb")]];elseif e==#{"1 + 1 = 111";{206;888;944;76};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{885;76;75;120};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{485;997;557;532};"1 + 1 = 111";{836;188;707;766};"1 + 1 = 111";"1 + 1 = 111";{159;733;349;879};{725;323;967;47};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{804;470;272;691};"1 + 1 = 111";"1 + 1 = 111";{382;193;71;683};"1 + 1 = 111";"1 + 1 = 111";{914;258;557;783};"1 + 1 = 111";{487;541;137;812};"1 + 1 = 111";{212;686;650;622};{116;535;284;587};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";{916;784;208;511};{394;959;61;16};"1 + 1 = 111";{216;997;724;725};"1 + 1 = 111";"1 + 1 = 111";{722;947;879;684};"1 + 1 = 111";{267;420;500;912};"1 + 1 = 111";"1 + 1 = 111";{523;311;620;134};{498;876;466;126};{648;321;118;977};{703;722;729;86};"1 + 1 = 111";"1 + 1 = 111";{742;314;728;649};"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}then g[a[#("ZEO")]]=c[a[#("a0")]];else if c[a[#("cL")]]then b=b+1;else b=a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}];end;end;elseif e<=#("JF5FCN48oAxHuMW8HSYdgJhQtHtEpXesrmdrnZuW8kvEHiA0Va2TBtX9xok5tBTB")then if e<=#("eoiIFURycf5nOjlgESp5u18ze48OzDHB4iD3rrqpkvzo1VTe9Y0TEFamqTEKVd")then if e>#("KIFtFQsYlCaV9DUIsl3PKNY7ziqMJXQEgxZQxCnyQ9OrEUaTHkkz2yz6UH5xA")then if not c[a[#("Ym")]]then b=b+1;else b=a[#("SBk")];end;else local j;local l,m;local k;local e;c[a[#("jV")]]=g[a[#("DdF")]];b=b+1;a=d[b];c[a[#("YF")]]=g[a[#("UkI")]];b=b+1;a=d[b];e=a[#("yJ")];k=c[a[#("fO1")]];c[e+1]=k;c[e]=k[a[#("6FSN")]];b=b+1;a=d[b];c[a[#("sS")]]=a[#("UTJ")];b=b+1;a=d[b];e=a[#("YM")]l,m=i(c[e](f(c,e+1,a[#("Qk2")])))h=m+e-1 j=0;for a=e,h do j=j+1;c[a]=l[j];end;b=b+1;a=d[b];e=a[#{{195;98;199;113};"1 + 1 = 111";}]c[e]=c[e](f(c,e+1,h))b=b+1;a=d[b];e=a[#("h8")]c[e]=c[e]()b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=c[a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}]][a[#("POBA")]];b=b+1;a=d[b];c[a[#("jr")]]=(a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}]~=0);b=b+1;a=d[b];c[a[#("3m")]]=a[#("XNV")];end;elseif e>#("pzVGONOdk17F9K8HEPhHfyMrMT826ZH18aUpG7fyfDatCxzY8mdpo2L1WE45OVh")then local h;local e;c[a[#("yK")]]=a[#("AJv")];b=b+1;a=d[b];c[a[#("U0")]]=g[a[#("45H")]];b=b+1;a=d[b];e=a[#("3B")];h=c[a[#("t2e")]];c[e+1]=h;c[e]=h[a[#("XISU")]];b=b+1;a=d[b];c[a[#("S1")]]=a[#("MAt")];b=b+1;a=d[b];e=a[#("7G")]c[e]=c[e](f(c,e+1,a[#("OG6")]))b=b+1;a=d[b];c[a[#{{760;809;771;474};"1 + 1 = 111";}]]=c[a[#("Iej")]][a[#("YDPg")]];b=b+1;a=d[b];c[a[#("Lv")]]=c[a[#("3F2")]][a[#("fltN")]];b=b+1;a=d[b];e=a[#{"1 + 1 = 111";{79;597;300;117};}];h=c[a[#("MO0")]];c[e+1]=h;c[e]=h[a[#("EyaL")]];b=b+1;a=d[b];c[a[#("XK")]]=c[a[#("3uX")]];b=b+1;a=d[b];c[a[#("BP")]]=c[a[#("xqZ")]];b=b+1;a=d[b];e=a[#("rE")]c[e](f(c,e+1,a[#("OiW")]))b=b+1;a=d[b];c[a[#("t5")]]=g[a[#("J9y")]];b=b+1;a=d[b];c[a[#("Wd")]]();b=b+1;a=d[b];b=a[#("XUp")];else local d=a[#("LW")];local b=c[a[#("Qn8")]];c[d+1]=b;c[d]=b[a[#("0RFf")]];end;elseif e<=#("ufH80TaHJTCNysZpuk4TWqMfz2EbckTtuP9vZA7olHRGB8EDOPKE1zJdECK7p9Ez9h")then if e==#("TtEA5mPHpJgOBzaxyKoC6g51y0a9mcsGtQUjkoPrm2sFyXiIoMgYUPvMyMcflQtnq")then local h;local e;c[a[#("Qz")]]=a[#("zGz")];b=b+1;a=d[b];c[a[#("ZN")]]=g[a[#("c3h")]];b=b+1;a=d[b];e=a[#("Pj")];h=c[a[#("bMr")]];c[e+1]=h;c[e]=h[a[#("xfKj")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=a[#("NiB")];b=b+1;a=d[b];e=a[#("V0")]c[e]=c[e](f(c,e+1,a[#("Rl3")]))b=b+1;a=d[b];c[a[#("V6")]]=c[a[#("sUq")]][a[#("J88f")]];b=b+1;a=d[b];c[a[#("0D")]]=c[a[#("gRZ")]][a[#("gi4J")]];b=b+1;a=d[b];e=a[#("3A")];h=c[a[#("zJW")]];c[e+1]=h;c[e]=h[a[#("l9OR")]];b=b+1;a=d[b];c[a[#("2N")]]=c[a[#("xCW")]];b=b+1;a=d[b];c[a[#("2n")]]=c[a[#("1AS")]];b=b+1;a=d[b];e=a[#("D9")]c[e](f(c,e+1,a[#("bgy")]))b=b+1;a=d[b];c[a[#("51")]]=g[a[#("SfI")]];b=b+1;a=d[b];c[a[#("h7")]]();b=b+1;a=d[b];b=a[#("t2L")];else local e;c[a[#("5W")]]=g[a[#("tJc")]];b=b+1;a=d[b];c[a[#("hO")]]=c[a[#("oGs")]][a[#("Ukei")]];b=b+1;a=d[b];c[a[#("FJ")]]=c[a[#("eoq")]][a[#("rOZO")]];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";{556;792;474;600};}]]=c[a[#("0M5")]][a[#("fdNU")]];b=b+1;a=d[b];c[a[#("FV")]]=c[a[#("vJF")]][a[#("T3F1")]];b=b+1;a=d[b];c[a[#("vX")]]=g[a[#("Eiy")]];b=b+1;a=d[b];c[a[#("T7")]]=c[a[#("vul")]][a[#("gnoi")]];b=b+1;a=d[b];c[a[#{{445;513;267;471};{564;180;442;488};}]]=a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}];b=b+1;a=d[b];c[a[#("6j")]]=a[#("8rv")];b=b+1;a=d[b];c[a[#("q0")]]=a[#("zhN")];b=b+1;a=d[b];e=a[#("MO")]c[e]=c[e](f(c,e+1,a[#("gvQ")]))b=b+1;a=d[b];c[a[#("u4")]][a[#("Z5g")]]=c[a[#("vDBP")]];b=b+1;a=d[b];do return end;end;elseif e<=#("uVP0mi57pdXBEKRCUL5FVOuhWImJfGIfnXCx3zz82XArY7iCyT5TrWZRAHeP5v1TGSm")then local j;local k,l;local e;c[a[#("qV")]]=c[a[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}]][a[#("1dXF")]];b=b+1;a=d[b];c[a[#("mx")]]=a[#("xta")];b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=a[#("l0s")];b=b+1;a=d[b];c[a[#("c8")]]=a[#("trm")];b=b+1;a=d[b];c[a[#("pJ")]]=a[#("RUE")];b=b+1;a=d[b];e=a[#{"1 + 1 = 111";"1 + 1 = 111";}]k,l=i(c[e](f(c,e+1,a[#("phW")])))h=l+e-1 j=0;for a=e,h do j=j+1;c[a]=k[j];end;b=b+1;a=d[b];e=a[#{{280;323;319;320};{491;648;397;283};}]c[e]=c[e](f(c,e+1,h))b=b+1;a=d[b];c[a[#{"1 + 1 = 111";"1 + 1 = 111";}]]=c[a[#("6jj")]][a[#("laCt")]];b=b+1;a=d[b];c[a[#("3o")]]=g[a[#("DLx")]];b=b+1;a=d[b];c[a[#("gN")]]=c[a[#("of0")]][a[#("4jur")]];elseif e>#("huJul7M7odsYzUlxKZXB8V6xtTcG6QVfUCudkKHtk1DxnqplkFiR5WSxymbD5gbIrne7")then c[a[#("hj")]]=c[a[#("0Xj")]][a[#("dFkS")]];else c[a[#("Of")]]=g[a[#("rkM")]];end;b=b+1;end;end);end;return k(true,{},n())();end)(string.byte,table.insert,setmetatable);
+local Finity = loadstring(game:HttpGet("https://pastebin.com/raw/vHJa2WhD"))()
+local FinityWindow = Finity.new(true, "Lift Legends | Made By BigHazzar#3081 | Toggle with RShift", UDim2.new(0, 600, 0, 400))
+FinityWindow.ChangeToggleKey(Enum.KeyCode.RightShift)
+
+local NameCategory = FinityWindow:Category("Credits")
+local AutoFarmCategory = FinityWindow:Category("AutoFarms")
+local ShopCategory = FinityWindow:Category("Shop")
+local TeleportsCategory = FinityWindow:Category("Teleports")
+local MISCCategory = FinityWindow:Category("MISC")
+
+
+local AutoFarmSector = AutoFarmCategory:Sector("Auto Farms")
+local TeleportSector = TeleportsCategory:Sector("Zone Teleports")
+local AutoBuySector = ShopCategory:Sector("Auto Buy Weight Stuff")
+local CreditsSector = NameCategory:Sector("Script Maker")
+local EggSector = ShopCategory:Sector("Buy Pet Stuff (No Animation)")
+local MISCSector = MISCCategory:Sector("MISC Stuff")
+
+AutoFarmSector:Cheat(
+	"Checkbox",
+	"Auto Lift",
+	function(State)
+		name = State;
+	end)
+spawn(function()
+	while wait() do
+		if name then
+			local A_1 = "Click"
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1)
+			wait(0.5)
+		end
+	end
+end)
+
+AutoFarmSector:Cheat(
+	"Checkbox",
+	"Auto Train Speed",
+	function(State)
+		AutoSpeed = State;
+	end)
+spawn(function()
+	while wait() do
+		if AutoSpeed then
+			local A_1 = "Running"
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1)
+			wait()
+		end
+	end
+end)
+
+AutoFarmSector:Cheat(
+	"Checkbox",
+	"Auto Train Punch",
+	function(State)
+		AutoPunch = State;
+	end)
+spawn(function()
+	while wait() do
+		if AutoPunch then
+			local A_1 = "Punching"
+			local A_2 = game:GetService("Workspace").PowerTrainingFolder.Model
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2)
+			wait()
+		end
+	end
+end)
+
+AutoFarmSector:Cheat(
+	"Checkbox",
+	"Auto Train Vitality",
+	function(State)
+		AutoVitality = State;
+	end)
+spawn(function()
+	while wait() do
+		if AutoVitality then
+			local A_1 = "Vitality"
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1)
+			wait()
+		end
+	end
+end)
+
+AutoFarmSector:Cheat(
+	"Checkbox",
+	"Auto Sell",
+	function(State)
+		AutoSell = State;
+	end)
+spawn(function()
+	while wait() do
+		if AutoSell then
+			local A_1 = "SellEnergy"
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1)
+			wait()
+		end
+	end
+end)
+
+AutoBuySector:Cheat(
+	"Checkbox",
+	"Auto Buy Strength",
+	function(State)
+		AutoPunch = State;
+	end)
+spawn(function()
+	while wait() do
+		if AutoPunch then
+			local A_1 = "PurchaseAll"
+			local A_2 = "Strength"
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2)
+			wait()
+		end
+	end
+end)
+
+AutoBuySector:Cheat(
+	"Checkbox",
+	"Auto Buy Endurance",
+	function(State)
+		Stars = State;
+	end)
+spawn(function()
+	while wait() do
+		if Stars then
+			local A_1 = "PurchaseAll"
+			local A_2 = "Endurance"
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2)
+			wait()
+		end
+	end	
+end)
+
+AutoBuySector:Cheat(
+	"Checkbox",
+	"Auto Buy Rebirth",
+	function(State)
+		Rebirth = State;
+	end)
+spawn(function()
+	while wait() do
+		if Rebirth then
+			local A_1 = "Purchase"
+			local A_2 = "Rank"
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2)
+			wait()
+		end
+	end	
+end)
+
+EggSector:Cheat(
+	"Checkbox",
+	"Auto Buy Teir 1 Egg (10 K)",
+	function(State)
+		Teir1 = State;
+	end)
+spawn(function()
+	while wait() do
+		if Teir1 then
+			local A_1 = "PurchaseCrate"
+			local A_2 = "Tier1"
+			local A_3 = 1
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2, A_3)
+			wait(1.5)
+		end
+	end	
+end)
+
+EggSector:Cheat(
+	"Checkbox",
+	"Auto Buy Teir 2 Egg (10 B)",
+	function(State)
+		Teir2 = State;
+	end)
+spawn(function()
+	while wait() do
+		if Teir2 then
+			local A_1 = "PurchaseCrate"
+			local A_2 = "Tier2"
+			local A_3 = 1
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2, A_3)
+			wait(1.5)
+		end
+	end	
+end)
+
+EggSector:Cheat(
+	"Checkbox",
+	"Auto Buy Teir 3 Egg (100 T)",
+	function(State)
+		Teir3 = State;
+	end)
+spawn(function()
+	while wait() do
+		if Teir3 then
+			local A_1 = "PurchaseCrate"
+			local A_2 = "Tier3"
+			local A_3 = 1
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2, A_3)
+			wait(1.5)
+		end
+	end	
+end)
+
+EggSector:Cheat(
+	"Checkbox",
+	"Auto Buy Teir 4 Egg (1 Si)",
+	function(State)
+		Teir4 = State;
+	end)
+spawn(function()
+	while wait() do
+		if Teir4 then
+			local A_1 = "PurchaseCrate"
+			local A_2 = "Tier4"
+			local A_3 = 1
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2, A_3)
+			wait(1.5)
+		end
+	end	
+end)
+
+EggSector:Cheat(
+	"Checkbox",
+	"Auto Buy Teir 5 Egg (1 NV)",
+	function(State)
+		Teir5 = State;
+	end)
+spawn(function()
+	while wait() do
+		if Teir5 then
+			local A_1 = "PurchaseCrate"
+			local A_2 = "Tier5"
+			local A_3 = 1
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2, A_3)
+			wait(1.5)
+		end
+	end	
+end)
+
+EggSector:Cheat(
+	"Checkbox",
+	"Auto Buy Teir 6 Egg (100 CJX)",
+	function(State)
+		Teir6 = State;
+	end)
+spawn(function()
+	while wait() do
+		if Teir6 then
+			local A_1 = "PurchaseCrate"
+			local A_2 = "Tier6"
+			local A_3 = 1
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2, A_3)
+			wait(1.5)
+		end
+	end	
+end)
+
+EggSector:Cheat(
+	"Checkbox",
+	"Auto Buy Teir 7 Egg (1e120 coins)",
+	function(State)
+		Teir7 = State;
+	end)
+spawn(function()
+	while wait() do
+		if Teir7 then
+			local A_1 = "PurchaseCrate"
+			local A_2 = "Tier7"
+			local A_3 = 1
+			local Event = game:GetService("ReplicatedStorage").Network.Port1
+			Event:FireServer(A_1, A_2, A_3)
+			wait(1.5)
+		end
+	end	
+end)
+
+CreditsSector:Cheat("Thank you for using", "Script Made By Qvtrio/BigHazzar#3081", 
+	function()	
+	end)
+
+CreditsSector:Cheat("Thank you for using", "Please Join The Discord", 
+	function()	
+	end)
+
+TeleportSector:Cheat("Button", "Teleport To Spawn", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1.9469955, -4.69218731, -11.6720028)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Zone 2", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12.3031626, -15.3940601, -723.458069)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Zone 3", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-8.39648819, -16.557724, -1029.8988)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Zone 4", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3.43834591, -17.7818508, -1349.25647)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Zone 5", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4.63009787, -17.0153961, -1672.9939)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Zone 6", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4.1543622, -21.3671627, -1979.05432)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Zone 7", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1.99036503, -22.3579693, -2281.08838)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Zone 8", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4.15287399, -22.3804646, -2619.60254)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Zone 9", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2.64403582, -24.2154083, -2930.14746)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Zone 10", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(12.4793911, -24.7086639, -3224.71118)
+end)
+
+CreditsSector:Cheat("Button", "Copy Discord Invite Link", function()
+	setclipboard("https://discord.gg/Y6DKVrX")
+end)
+
+MISCSector:Cheat("Slider", "Speed", function(Value)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	print("Silder value changed:", Value)
+end, {min = 0, max = 200, suffix = "Speed"})
+
+MISCSector:Cheat("Slider", "Jump Power", function(Value)
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	print("Silder value changed:", Value)
+end, {min = 0, max = 200, suffix = "Jump Power"})
+
