@@ -1,0 +1,171 @@
+local Finity = loadstring(game:HttpGet("https://pastebin.com/raw/vHJa2WhD"))()
+local FinityWindow = Finity.new(true, "Punch Clicker | Made By BigHazzar#3081 | Toggle with RShift", UDim2.new(0, 600, 0, 400))
+FinityWindow.ChangeToggleKey(Enum.KeyCode.RightShift)
+
+local NameCategory = FinityWindow:Category("Credits")
+local AutoFarmCategory = FinityWindow:Category("AutoFarms")
+local TeleportsCategory = FinityWindow:Category("Teleports")
+local ShopCategory = FinityWindow:Category("Shop")
+
+local AutoFarmSector = AutoFarmCategory:Sector("Auto Farms")
+local TeleportSector = TeleportsCategory:Sector("Islands Teleports")
+local AutoBuySector = ShopCategory:Sector("Auto Buy")
+local BuyAurasSector = ShopCategory:Sector("Buy Auras")
+local CreditsSector = NameCategory:Sector("Script Maker")
+
+
+
+AutoFarmSector:Cheat(
+	"Checkbox",
+	"Auto Punch",
+	function(State)
+		name = State;
+	end)
+spawn(function()
+	while wait() do
+		if name then
+			local Event = game:GetService("ReplicatedStorage").Punches
+			Event:FireServer()
+			wait()
+		end
+	end
+end)
+
+AutoBuySector:Cheat(
+	"Checkbox",
+	"Auto buy Auto-Punch",
+	function(State)
+		AutoPunch = State;
+	end)
+spawn(function()
+	while wait() do
+		if AutoPunch then
+			local A_1 = "Upgrade"
+			local A_2 = 3
+			local Event = game:GetService("ReplicatedStorage").Buy
+			Event:FireServer(A_1, A_2)
+			wait()
+		end
+	end
+end)
+
+AutoBuySector:Cheat(
+	"Checkbox",
+	"Auto buy 5x Stars",
+	function(State)
+		Stars = State;
+	end)
+spawn(function()
+	while wait() do
+		if Stars then
+			local A_1 = "Upgrade"
+			local A_2 = 2
+			local Event = game:GetService("ReplicatedStorage").Buy
+			Event:FireServer(A_1, A_2)
+			wait()
+		end
+	end	
+end)
+
+AutoBuySector:Cheat(
+	"Checkbox",
+	"Auto buy 5x Punches",
+	function(State)
+		Punches = State;
+	end)
+spawn(function()
+	while wait() do
+		if Punches then
+			local A_1 = "Upgrade"
+			local A_2 = 1
+			local Event = game:GetService("ReplicatedStorage").Buy
+			Event:FireServer(A_1, A_2)
+			wait()
+		end
+	end
+end)
+
+AutoFarmSector:Cheat(
+	"Checkbox",
+	"Auto Sell",
+	function(State)
+		AutoSell = State;
+	end)
+spawn(function()
+	while wait() do
+		if AutoSell then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2094.66138, 399.147949, -1396.55945)
+			wait(0.5)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2094.66138, 399.147949, -1396.55945)
+			wait()
+		end
+	end
+end)	 
+
+BuyAurasSector:Cheat("Button", "Buy Fire Aura", function()
+	local A_1 = "Auras"
+	local A_2 = 1
+	local Event = game:GetService("ReplicatedStorage").Buy
+	Event:FireServer(A_1, A_2)
+end)
+
+BuyAurasSector:Cheat("Button", "Buy Plasma Aura", function()
+	local A_1 = "Auras"
+	local A_2 = 2
+	local Event = game:GetService("ReplicatedStorage").Buy
+	Event:FireServer(A_1, A_2)
+end)
+
+BuyAurasSector:Cheat("Button", "Buy Electricity Aura", function()
+	local A_1 = "Auras"
+	local A_2 = 3
+	local Event = game:GetService("ReplicatedStorage").Buy
+	Event:FireServer(A_1, A_2)
+end)
+
+BuyAurasSector:Cheat("Button", "Buy Galaxy Aura", function()
+	local A_1 = "Auras"
+	local A_2 = 4
+	local Event = game:GetService("ReplicatedStorage").Buy
+	Event:FireServer(A_1, A_2)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Spawn", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-446.153046, 417.665009, 116.245247)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Worlds Portals", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-285.681396, 417.665009, 124.702789)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Grey World", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1069.1106, 417.119263, 2241.28906)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Red World", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2498.23413, 397.643219, -105.487297)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To White World", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(80.0358887, 403.469238, -1518.52795)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Yellow World", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1961.58569, 400.721436, 529.897156)
+end)
+
+TeleportSector:Cheat("Button", "Teleport To Green World", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2213.32422, 397.843231, -1222.6156)
+end)
+
+CreditsSector:Cheat("Thank you for using", "Script Made By Qvtrio/BigHazzar#3081", 
+	function()	
+	end)
+
+CreditsSector:Cheat("Thank you for using", "Please Join The Discord", 
+	function()	
+	end)
+
+CreditsSector:Cheat("Button", "Copy Discord Invite Link", function()
+	setclipboard("https://discord.gg/Y6DKVrX")
+end)
