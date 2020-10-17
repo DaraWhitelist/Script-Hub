@@ -6,7 +6,7 @@ local v5 = require(ClientModules.UI.Utility)
 local UI = player.PlayerGui:WaitForChild("UI")
 local world= UI:WaitForChild("World")
 local Interact = world:WaitForChild("Interact");
-local Exit = world:WaitForChild("Exit");
+local Exit = world:FindFirstChild("Exit");
 local OnScreen = player.PlayerGui.UI.OnScreen
 local sel1
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/JsdM2jiP",tR1e))()
@@ -91,7 +91,7 @@ spawn(function()
     while wait(.01) do
         if Mining.flags.center then
 			for _,v in next,game:GetService("Workspace")["Resources"]["Ores"]["World_1"]["Center_Ores"]:GetChildren() do
-				if player["world"].Value == "Halloween 2020" and v.Name == "Candy_Corn_1" then
+				if player["world"].Value == "Halloween 2020" and string.match(v.Name,"Candy_Corn_"..player["island"].Value) then
 					for i=1,10 do
                     	game:GetService("ReplicatedStorage")["Events"]["Server"]["RequestSwing"]:InvokeServer(v)
                     end
@@ -242,9 +242,13 @@ end)
 --Teleports Tab
 local Teleport = library:CreateWindow("Teleports")
 
-local function teleport(num)
-	local island = game:GetService("Workspace").Resources.Interaction.Worlds["1"].Islands[num].Exit
-	game:GetService("ReplicatedStorage").Events.Server.RequestIslandTeleport:InvokeServer("1",num,island)
+local function teleport(place,num,boolV)
+	local c= "Exit"
+	if boolV then
+		c = "Enter"
+	end
+	local island = game:GetService("Workspace").Resources.Interaction.Worlds[place].Islands[num][c]
+	game:GetService("ReplicatedStorage").Events.Server.RequestIslandTeleport:InvokeServer(place,num,island)
 end
 
 Teleport:Button("Spawn",function()
@@ -252,27 +256,28 @@ Teleport:Button("Spawn",function()
 	hum.CFrame = spawn.CFrame
 end)
 Teleport:Button("Grassland",function()
-	teleport("2")
+	teleport("1","2")
 end)
 Teleport:Button("Desert",function()
-	teleport("3")
+	teleport("1","3")
 end)
 Teleport:Button("Jungle",function()
-	teleport("4")
+	teleport("1","4")
 end)
 Teleport:Button("Frozen",function()
-	teleport("5")
+	teleport("1","5")
 end)
 Teleport:Button("Space",function()
-	teleport("6")
+	teleport("1","6")
 end)
 Teleport:Button("Alien",function()
-	teleport("7")
+	teleport("1","7")
 end)
 Teleport:Button("Halloween",function()
-	local exit = game:GetService("Workspace").Resources.Interaction.Worlds["Halloween 2020"].Exit
-	game:GetService("ReplicatedStorage").Events.Server.RequestWorldTeleport:InvokeServer("Halloween 2020",exit)
-
+	teleport("Halloween 2020","2",true)
+end)
+Teleport:Button("Halloween 2",function()
+	teleport("Halloween 2020","2")
 end)
 		
 --Pets Tab
@@ -290,8 +295,8 @@ Pets:Dropdown("Eggs", {location = _G, flag = "Egg", list = {
 	"Space Egg 450K Gems",
 	"Alien Egg 800K Gems",
 	"Pumpkin Egg 500 Candy",
-	"Terror Egg 60K"
-	
+	"Terror Egg 60K Candy",
+	"Skeleton Egg 180K Candy"
 }
 })
 Pets:Dropdown("#Eggs to Open", {location = _G, flag = "Number", list = {
@@ -382,6 +387,9 @@ spawn(function()
 			end
 			if string.match(_G.Egg,"Terror") then
 				oh1 = "Terror"
+			end
+			if string.match(_G.Egg,"Skeleton") then
+				oh1 = "Skeleton"
 			end
             local oh2 = _G.Number
             game:GetService("ReplicatedStorage")["Events"]["Server"]["BuyEgg"]:InvokeServer(oh1,tonumber(oh2))
