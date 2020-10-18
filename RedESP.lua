@@ -1,5 +1,6 @@
 local gplrs = game.Players:GetPlayers()
 local plr = game.Players.LocalPlayer
+local team = plr.Status.Team
 local TorsoEsp = Instance.new("Part")
 TorsoEsp.Anchored = true
 TorsoEsp.BottomSurface = Enum.SurfaceType.Smooth
@@ -169,7 +170,7 @@ BoxHandleAdornment.ZIndex = 2
 BoxHandleAdornment.Parent = LeftLowerArmEsp
 
 game.Players.PlayerAdded:Connect(function(plr)
-	if plr.Name ~= game.Players.LocalPlayer.Name then
+	if plr.Name ~= game.Players.LocalPlayer.Name and plr.Status.Team.Value ~= team.Value then
 	TorsoEsp:Clone()
 	TorsoEsp.Parent = game.Workspace:WaitForChild(plr.Name)
 	TorsoEsp.BoxHandleAdornment.Adornee = game.Workspace:WaitForChild(plr.Name).HumanoidRootPart
@@ -207,7 +208,7 @@ end)
 
 
 for i, v in pairs(gplrs) do
-	if v.Name ~= plr.Name then
+	if v.Name ~= plr.Name and v.Status.Team.Value ~= team.Value then
 	local BoxHandleAdornment = Instance.new("BoxHandleAdornment")
 	BoxHandleAdornment.Adornee = v.Character.HumanoidRootPart
 	BoxHandleAdornment.AlwaysOnTop = true
@@ -221,7 +222,7 @@ end
 
 
 for i, v in pairs(gplrs) do
-	if v.Name ~= plr.Name then
+	if v.Name ~= plr.Name and v.Status.Team.Value ~= team.Value then
 	local BoxHandleAdornment = Instance.new("BoxHandleAdornment")
 	BoxHandleAdornment.Adornee = v.Character.Head
 	BoxHandleAdornment.AlwaysOnTop = true
@@ -235,7 +236,7 @@ end
 
 
 for i, v in pairs(gplrs) do
-	if v.Name ~= plr.Name then
+	if v.Name ~= plr.Name and v.Status.Team.Value ~= team.Value then
 	local BoxHandleAdornment = Instance.new("BoxHandleAdornment")
 	BoxHandleAdornment.Adornee = v.Character.UpperTorso
 	BoxHandleAdornment.AlwaysOnTop = true
@@ -249,7 +250,7 @@ end
 
 
 for i, v in pairs(gplrs) do
-	if v.Name ~= plr.Name then
+	if v.Name ~= plr.Name and v.Status.Team.Value ~= team.Value then
 	local BoxHandleAdornment = Instance.new("BoxHandleAdornment")
 	BoxHandleAdornment.Adornee = v.Character.RightUpperLeg
 	BoxHandleAdornment.AlwaysOnTop = true
@@ -263,7 +264,7 @@ end
 
 
 for i, v in pairs(gplrs) do
-	if v.Name ~= plr.Name then
+	if v.Name ~= plr.Name and v.Status.Team.Value ~= team.Value then
 	local BoxHandleAdornment = Instance.new("BoxHandleAdornment")
 	BoxHandleAdornment.Adornee = v.Character.LeftUpperLeg
 	BoxHandleAdornment.AlwaysOnTop = true
@@ -277,7 +278,7 @@ end
 
 
 for i, v in pairs(gplrs) do
-	if v.Name ~= plr.Name then
+	if v.Name ~= plr.Name and v.Status.Team.Value ~= team.Value then
 	local BoxHandleAdornment = Instance.new("BoxHandleAdornment")
 	BoxHandleAdornment.Adornee = v.Character.LowerTorso
 	BoxHandleAdornment.AlwaysOnTop = true
@@ -291,7 +292,7 @@ for i, v in pairs(gplrs) do
 	
 
 for i, v in pairs(gplrs) do
-	if v.Name ~= plr.Name then
+	if v.Name ~= plr.Name and v.Status.Team.Value ~= team.Value then
 	local BoxHandleAdornment = Instance.new("BoxHandleAdornment")
 	BoxHandleAdornment.Adornee = v.Character.RightLowerArm
 	BoxHandleAdornment.AlwaysOnTop = true
@@ -308,7 +309,7 @@ end
 
 
 for i, v in pairs(gplrs) do
-	if v.Name ~= plr.Name then
+	if v.Name ~= plr.Name and v.Status.Team.Value ~= team.Value then
 	local BoxHandleAdornment = Instance.new("BoxHandleAdornment")
 	BoxHandleAdornment.Adornee = v.Character.LeftLowerArm
 	BoxHandleAdornment.AlwaysOnTop = true
