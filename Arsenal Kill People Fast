@@ -45,3 +45,5 @@ hook = hookfunction(a.firebullet, function(...)
    end
 return hook(...)
 end)
+
+print("Working")
