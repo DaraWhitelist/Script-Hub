@@ -4,6 +4,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local ClientModules = ReplicatedStorage.ClientModules;
 local v5 = require(ClientModules.UI.Utility)
 local UI = player.PlayerGui:WaitForChild("UI")
+local Items = UI:WaitForChild("Items");
 local world= UI:WaitForChild("World")
 local Interact = world:WaitForChild("Interact");
 local Exit = world:FindFirstChild("Exit");
@@ -276,8 +277,11 @@ end)
 Teleport:Button("Halloween",function()
 	teleport("Halloween 2020","2",true)
 end)
-Teleport:Button("Halloween 2",function()
+Teleport:Button("Skeleton Island",function()
 	teleport("Halloween 2020","2")
+end)
+Teleport:Button("Witch Island",function()
+	teleport("Halloween 2020","3")
 end)
 		
 --Pets Tab
@@ -296,7 +300,8 @@ Pets:Dropdown("Eggs", {location = _G, flag = "Egg", list = {
 	"Alien Egg 800K Gems",
 	"Pumpkin Egg 500 Candy",
 	"Terror Egg 60K Candy",
-	"Skeleton Egg 180K Candy"
+	"Skeleton Egg 180K Candy",
+	"Witch Egg 25M Candy"
 }
 })
 Pets:Dropdown("#Eggs to Open", {location = _G, flag = "Number", list = {
@@ -308,6 +313,7 @@ local Eggs = Pets:Toggle("Open Eggs", {flag = "TEgg"})
 
 -- Sell Pets
 Pets:Section("Sell Pets")
+local petSell = Pets:Toggle("Activate",{flag = "display"})
 local Common = Pets:Toggle("Sell All Common", {flag = "SCommon"}) 
 local Rare = Pets:Toggle("Sell All Rare", {flag = "SRare"}) 
 local Epic = Pets:Toggle("Sell All Epic", {flag = "SEpic"}) 
@@ -324,6 +330,7 @@ local choice = Pets:Dropdown("Sell Specific Legendary",{location = _G, flag = "c
 })
 local choiceSell = Pets:Toggle("Legendary Sell",{flag="SPet"})
 --local Limited = Pets:Toggle("Sell All Limited",{flag = "SLimited"})
+
 
 local function sell(rare)
 	for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetChildren() do
@@ -391,6 +398,9 @@ spawn(function()
 			if string.match(_G.Egg,"Skeleton") then
 				oh1 = "Skeleton"
 			end
+			if string.match(_G.Egg,"Witch") then
+				oh1 = "Witch"
+			end
             local oh2 = _G.Number
             game:GetService("ReplicatedStorage")["Events"]["Server"]["BuyEgg"]:InvokeServer(oh1,tonumber(oh2))
         end
@@ -437,7 +447,13 @@ spawn(function()
         end
     end
 end)]]
-
+spawn(function()
+	while wait() do
+		if Pets.flags.display then
+			v5.DisplayPage(player, UI, Items);
+		end
+	end
+end)
 Pets:Section("Other Pet Stuff")
 local shine = Pets:Toggle("Auto Shiny", {flag = "AShiny"})
 local bestOre = Pets:Toggle("Auto Best Ore",{flag = "BOre"})
@@ -492,20 +508,6 @@ local Kill = Misc:Button("Destroy GUI", function()
 	game:GetService("CoreGui").ScreenGui:Destroy()
 
 end)
-local x =Exit:Clone()
-x.Parent = game.Workspace
-local price = world.Price.ImageLabel:Clone()
-price.Parent = game.Workspace
-u2 = Interact.Button.MouseButton1Click:Connect(function()
-	v5.ClosePage(UI, world);
-		if u2 ~= nil then
-			u2:Disconnect();
-			world.TextLabel.Text = "World Purchase"
-			price.Parent = world.Price
-			x.Parent = world
-			print("done")
-		end;
-end);
 local Credits = library:CreateWindow("Credits")
 local label = Credits:Label("Script Created By:\nDeidara#2637")
 local label  = Credits:Label("---====Discord Server====---")
@@ -544,3 +546,17 @@ OnScreen.Sell2.Button.MouseButton1Click:Connect(function()
 	wait(.5)
 	hum.CFrame = placeHolder
 end)
+local x =Exit:Clone()
+x.Parent = game.Workspace
+local price = world.Price.ImageLabel:Clone()
+price.Parent = game.Workspace
+u2 = Interact.Button.MouseButton1Click:Connect(function()
+	v5.ClosePage(UI, world);
+		if u2 ~= nil then
+			u2:Disconnect();
+			world.TextLabel.Text = "World Purchase"
+			price.Parent = world.Price
+			x.Parent = world
+			print("done")
+		end;
+end);
