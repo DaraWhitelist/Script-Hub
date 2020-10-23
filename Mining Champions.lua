@@ -24,6 +24,21 @@ player.Idled:connect(function()
    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
+local x =Exit:Clone()
+x.Parent = game.Workspace
+local price = world.Price.ImageLabel:Clone()
+price.Parent = game.Workspace
+u2 = Interact.Button.MouseButton1Click:Connect(function()
+	v5.ClosePage(UI, world);
+		if u2 ~= nil then
+			u2:Disconnect();
+			world.TextLabel.Text = "World Purchase"
+			price.Parent = world.Price
+			x.Parent = world
+			print("done")
+		end;
+end);
+
 local function rarity(petName)
 	for _,v in next,player.PlayerGui.UI.Items.Frames.Pets.Items:GetChildren() do
 		if v:IsA("ImageLabel") and petName == v.ItemName.Value then
@@ -546,17 +561,3 @@ OnScreen.Sell2.Button.MouseButton1Click:Connect(function()
 	wait(.5)
 	hum.CFrame = placeHolder
 end)
-local x =Exit:Clone()
-x.Parent = game.Workspace
-local price = world.Price.ImageLabel:Clone()
-price.Parent = game.Workspace
-u2 = Interact.Button.MouseButton1Click:Connect(function()
-	v5.ClosePage(UI, world);
-		if u2 ~= nil then
-			u2:Disconnect();
-			world.TextLabel.Text = "World Purchase"
-			price.Parent = world.Price
-			x.Parent = world
-			print("done")
-		end;
-end);
