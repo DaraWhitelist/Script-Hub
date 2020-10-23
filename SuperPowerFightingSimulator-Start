@@ -1,0 +1,26 @@
+local Abstract = loadstring(game:HttpGet("https://raw.githubusercontent.com/AbstractPoo/Main/AbstractUI/AbstractUI"))()
+local UI = Abstract:Create("Super Power Fighting Simulator", UDim2.new(0, 420, 0, 450))
+UI:Divider("Credits")
+
+UI:Button("Script Made By BigHazzar#3081", "Please Join The Discord - Copy Link", function()
+	setclipboard("https://discord.gg/Y6DKVrX")
+end)
+
+UI:Divider("Auto Farms")
+
+
+local TStrength = false
+UI:Toggle("Auto Train Strength", "Auto Train Strength With Out Moving!", false, function()
+	TStrength = not TStrength
+	while TStrength and wait() do
+		require(game:GetService("Players").LocalPlayer.PlayerGui.Modules.PetModule).convertToPremiumAutoClick()
+	end
+end)
+
+local TEndurance = false
+UI:Toggle("Auto Train Endurance", "Auto Train Endurance With Out Moving!", false, function()
+	TEndurance = not TEndurance
+	while TEndurance and wait() do
+		require(game:GetService("Players").LocalPlayer.PlayerGui.Modules.RebirthModule).showAutoRebirthUI()
+	end
+end)
