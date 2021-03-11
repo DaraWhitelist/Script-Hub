@@ -3,6 +3,7 @@
 	version 1.3a
 	by Singularity (V3rm @ King Singularity) (Discord @ Singularity#5490) 
     message from stellar ~  please keep the credits for me and singularity if u are going to update this!
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ayisrael19/Script-Hub/master/afs.lua"))()
 --]]
 plr = game.Players.LocalPlayer
 chr = plr.Character
