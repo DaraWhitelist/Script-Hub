@@ -5,9 +5,7 @@
     message from stellar ~  please keep the credits for me and singularity if u are going to update this!
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Ayisrael19/Script-Hub/master/afs.lua"))()
 --]]
-plr = game.Players.LocalPlayer
-chr = plr.Character
-hum = chr.HumanoidRootPart
+
 
 
 coroutine.wrap(function()
@@ -19,27 +17,27 @@ coroutine.wrap(function()
         Duration = 1,
         })
     end
-    --[[if is_synapse_function then
+--[[if is_synapse_function then
         messagebox("Script is currently loading! \n \n \nPlease wait!","Stellar's Script",0)
     end--]]
 end)()
 
 workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
 
-old = hum.CFrame 
+old = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
 
 
 local function get()
     for k,v in next,game:GetService('Workspace').MouseIgnore:GetDescendants() do
             if v:IsA('BasePart') and v.Name == 'Durability' then
             wait()
-            hum.CFrame = v.CFrame
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
             elseif v:IsA('BasePart') and v.Name == 'Strength' then
             wait()
-            hum.CFrame = v.CFrame
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
             elseif v:IsA('BasePart') and v.Name == 'Chakra' then
             wait()
-            hum.CFrame = v.CFrame            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame            
         end
     end
 end
@@ -53,7 +51,7 @@ local d = 0
 
 local function z_check()
     if game.PlaceId == 4042427666 then
-        hum.CFrame = game:GetService("Workspace").MiscModels["Kami's lookout"]["Meshes/KamiLook Out 3_Cylinder"].CFrame + Vector3.new(0,300,0)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").MiscModels["Kami's lookout"]["Meshes/KamiLook Out 3_Cylinder"].CFrame + Vector3.new(0,300,0)
         for k,v in next,game:GetService("Workspace").MouseIgnore:GetChildren() do
             if v.Name == 'Durability' then
                 d = d+ 1
@@ -73,7 +71,7 @@ local function z_check()
             end
         end
     elseif game.PlaceId == 5113678354 then
-        --hum.CFrame = game:GetService("Workspace").MiscModels["Kami's lookout"]["Meshes/KamiLook Out 3_Cylinder"].CFrame + Vector3.new(0,300,0)
+        --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").MiscModels["Kami's lookout"]["Meshes/KamiLook Out 3_Cylinder"].CFrame + Vector3.new(0,300,0)
         for k,v in next,game:GetService("Workspace").MouseIgnore:GetChildren() do
             if v.Name == 'Durability' then
                 d = d+ 1
@@ -117,7 +115,7 @@ end
 --5113680396
 for i = 1,4 do get() end
 
-hum.CFrame = old
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
 
 z_check()
 
@@ -133,7 +131,7 @@ else
     for i=1,8 do get() end
 end
 
-hum.CFrame = old
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
 workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
 
 if d ~= 8 and s ~= 8 and c ~= 8 and game.PlaceId == 4042427666 then
@@ -196,8 +194,8 @@ end
 local function noclip_tog()
     coroutine.wrap(function()
         loop3 =  game:GetService('RunService').Stepped:Connect(function()
-            if chr and chr:FindFirstChild('HumanoidRootPart') and ui_options.Noclip == true then
-                for k,v in next,chr:GetChildren() do
+            if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart') and ui_options.Noclip == true then
+                for k,v in next,game.Players.LocalPlayer.Character:GetChildren() do
                     if v:IsA('BasePart') then
                         v.CanCollide = false
                     end
@@ -2278,7 +2276,7 @@ end
 
 	    
 		Tab:AddLabel("\nScript : stellar#4242 \nUi Lib : Singularity#5490")
-        Tab:AddLabel(getgenv().str) -- when i obfuscated this broke so i had to do getgenv().str
+        Tab:AddLabel("\nRatified By:Killua#0003") -- when i obfuscated this broke so i had to do getgenv().str
         
 sex = {}
 
@@ -2323,19 +2321,19 @@ end
 			            parse(ui_options.Stat)
 			        end
 			        for k,v in next,game:GetService("Workspace").MouseIgnore:GetChildren() do
-			            if v.Name == ui_options.Stat and v:FindFirstChild('Requires') and v.Requires.Value == ui_options.Zone and chr and chr:FindFirstChild('HumanoidRootPart') then
+			            if v.Name == ui_options.Stat and v:FindFirstChild('Requires') and v.Requires.Value == ui_options.Zone and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart') then
 			                zone_check()
-                            hum.CFrame = v.CFrame + Vector3.new(0,ui_options.Safety,0)
-                            chr.Humanoid:ChangeState(11)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0,ui_options.Safety,0)
+                            game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 			            end
                     end
                 end)
 			end)()
         elseif  bool == false then
-        hum.Anchored = false
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
         loop:Disconnect()
         loop2:Disconnect()
-        hum.CFrame = old
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
 	end
 end)
 		
@@ -2351,32 +2349,34 @@ end)
 		
 		
 Tab:AddSwitch('Chikara', function(val)
+	ui_options.Chikara = val    
         ui_options.Chikara = val    
-        if val == true then
+	ui_options.Chikara = val    
+	if val == true then
 
-        while wait() do
-            --coroutine.wrap(function()
-                for k,v in next,game:GetService("Workspace").MouseIgnore:GetDescendants() do
-                    if ui_options.Chikara == true and v.Name == 'ClickDetector' and v.Parent.Name == 'ClickBox' and v.Parent.Parent.Name == 'ChikaraCrate' then
-                        hum.CFrame = v.Parent.CFrame
-       					wait(1)
-       					fireclickdetector(v,0)
-                        wait(3.5)
-                    end
-                end
-            --end)()
-            if ui_options.Chikara == false then
-                break
-            end
-        end
-    end
+		while wait() do
+			--coroutine.wrap(function()
+				for k,v in next,game:GetService("Workspace").MouseIgnore:GetDescendants() do
+					if ui_options.Chikara == true and v.Name == 'ClickDetector' and v.Parent.Name == 'ClickBox' and v.Parent.Parent.Name == 'ChikaraCrate' then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+						wait(1)
+						fireclickdetector(v,0)
+						wait(3.5)
+					end
+				end
+			--end)()
+			if ui_options.Chikara == false then
+				break
+			end
+		end
+	end
 end)
 
  Tab:AddSwitch('Players',function(v)
     if v == true then
         loop4 = game:GetService('RunService').Stepped:Connect(function()
             for k,v in next,game.Players:GetChildren() do
-                if v.Name ~= chr.Name then
+                if v.Name ~= game.Players.LocalPlayer.Name then
                     v.Character.HumanoidRootPart.CFrame = CFrame.new(player.Character.HumanoidRootPart.Position+(8.55)* player.Character.HumanoidRootPart.CFrame.lookVector + (-1)* player.Character.HumanoidRootPart.CFrame.upVector, player.Character.HumanoidRootPart.Position)
                 end
             end
@@ -2471,7 +2471,7 @@ end)
 		Tab_s:AddSwitch('Equip Champion',function(z)
 			if z == true then
 				game:GetService("ReplicatedStorage").RSPackage.Events.GeneralFunction:InvokeServer("SummonChamp",tonumber(ui_options.cslot))
-				eventz = chrAdded:Connect(function(v)
+				eventz = game.Players.LocalPlayer.CharacterAdded:Connect(function(v)
 					if v then 
 						wait(.75)
 						game:GetService("ReplicatedStorage").RSPackage.Events.GeneralFunction:InvokeServer("SummonChamp",tonumber(ui_options.cslot))
@@ -2541,8 +2541,8 @@ end)
             ui_options.Safety = val
         end,{['min']=0,['max']=35})
         slider_safety:Set(0)
-        ws=Tab:AddSlider('Walk Speed',function(v)chr.Humanoid.WalkSpeed=v end,{['min']=16,['max']=500})
-        js=Tab:AddSlider('Jump Power',function(v)chr.Humanoid.JumpPower=v end,{['min']=50,['max']=500})
+        ws=Tab:AddSlider('Walk Speed',function(v)game.Players.LocalPlayer.Character.Humanoid.WalkSpeed=v end,{['min']=16,['max']=500})
+        js=Tab:AddSlider('Jump Power',function(v)game.Players.LocalPlayer.Character.Humanoid.JumpPower=v end,{['min']=50,['max']=500})
         ws:Set(0)
         js:Set(14)
 
@@ -2553,7 +2553,8 @@ end)
 		})
 		
         Tab2:AddButton('Copy Owner Discord',function()setclipboard("Singularity#5490")end)
-		Tab2:AddLabel('\n \nNeed Support? | Add Him')
+		Tab2:AddButton('Copy My Discord',function()setclipboard('Killua#0003')end)
+		Tab2:AddLabel('\nNeed Support? | Dm The Owner or Me I might be able to help')
 
 
 		local Folder = Tab:AddFolder("Teleports") -- This can contain exactly the same as a Tab. You can have as many folders as you'd like to.
@@ -2573,7 +2574,7 @@ end)
 		    if ui_options.use_synapse == true then
 		        fireclickdetector(v.ClickBox.ClickDetector)
 		    else
-		        hum.CFrame = v.ClickBox.CFrame + Vector3.new(0,5,0)
+		        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.ClickBox.CFrame + Vector3.new(0,5,0)
 		    end
 		end)
     end
@@ -2584,7 +2585,7 @@ end)
         if ui_options.use_synapse == true then
 		    fireclickdetector(v.ClickBox.ClickDetector)
 	        else
-                hum.CFrame = v.ClickBox.CFrame + Vector3.new(0,5,0)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.ClickBox.CFrame + Vector3.new(0,5,0)
             end
         end)
 	end
@@ -2596,14 +2597,14 @@ end)
         for k,v in next,game:GetService("Workspace").MouseIgnore:GetChildren() do
             if  v.Name == 'Chakra' then
                 chakf:AddButton(v.DisplayHolder.Display.Area.Text.." ["..v.DisplayHolder.Display.Requires.Text.."]",function()
-                    hum.CFrame = v.CFrame + Vector3.new(0,10,0)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0,10,0)
                 end)
             end
         end
         for k,v in next,game:GetService("Workspace").MouseIgnore:GetChildren() do
             if v.Name == 'Durability' then
                 duraf:AddButton(v.DisplayHolder.Display.Area.Text.." ["..v.DisplayHolder.Display.Requires.Text.."]",function()
-                    hum.CFrame = v.CFrame + Vector3.new(0,10,0)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0,10,0)
                 end)
             end
         end
@@ -2611,7 +2612,7 @@ end)
         for k,v in next,game:GetService("Workspace").MouseIgnore:GetChildren() do
             if v.Name == 'Strength' then
                 Folder4:AddButton(v.DisplayHolder.Display.Area.Text.." ["..v.DisplayHolder.Display.Requires.Text.."]",function()
-                    hum.CFrame = v.CFrame + Vector3.new(0,10,0)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0,10,0)
                 end)
             end
         end
@@ -2620,7 +2621,7 @@ end)
         for k,v in next,game:GetService("Workspace").DimensionPortal:GetChildren() do
             if v:FindFirstChild('PlaceID') then
             Folder5:AddButton(v.Name.. " ".."["..v.PlaceID.Value.."]",function()
-                hum.CFrame = v.ClickBox.CFrame
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.ClickBox.CFrame
             end)
         end
         end
@@ -2685,7 +2686,7 @@ Tab3:AddSwitch('Attack Boss',function(v)
                         end
                     elseif Spawned == true and mob == nil and tonumber(string.match(game:GetService("Workspace").BossArena.ClickBox.BillboardGui.Info.Timer.Text,"%d+")) >= 96 and player.Character and player.Character:FindFirstChild('Humanoid') then
                         Spawned = false
-                        chr.Humanoid.Health = 0 
+                        game.Players.LocalPlayer.Character.Humanoid.Health = 0 
                     elseif v:FindFirstChild('HumanoidRootPart') == nil  and tonumber(string.match(game:GetService("Workspace").BossArena.ClickBox.BillboardGui.Info.Timer.Text,"%d+")) <= 5 and Spawned == false then
                         Spawned = true
                         fireclickdetector(game.Workspace.BossArena.ClickBox.ClickDetector)
@@ -2704,7 +2705,7 @@ end)
 			if val == true then
 				ui_options.SpecOn = false
 				game.ReplicatedStorage.RSPackage.Events.GeneralFunction:InvokeServer('Summon',ui_options.Special)
-					spec_c = chrAdded:Connect(function(v)
+					spec_c = game.Players.LocalPlayer.CharacterAdded:Connect(function(v)
 					if v then
 						wait(2)
 						game.ReplicatedStorage.RSPackage.Events.GeneralFunction:InvokeServer('Summon',ui_options.Special)
