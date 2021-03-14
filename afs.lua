@@ -22,6 +22,13 @@ coroutine.wrap(function()
     end--]]
 end)()
 
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
 workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
 
 old = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame 
@@ -2372,6 +2379,30 @@ Tab:AddSwitch('Chikara', function(val)
 	end
 end)
 
+Tab:AddSwitch("Dragon Orbs", function(val)
+	ui_options.DragonOrbs = val
+		ui_options.DragonOrbs = val
+	ui_options.DragonOrbs = val
+	if val == true then
+
+		while wait() do
+			    --coroutine.wrap(function()
+				for k,v in next,game:GetService("Workspace").MouseIgnore:GetDescendants() do
+					if ui_options.DragonOrbs == true and v.Name == 'ClickDetector' and v.Parent.Name == 'ClickPart' and v.Parent.Parent.Name == 'Model' then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+						wait(1)
+						fireclickdetector(v,0)
+						wait(3.5)
+					end
+				end
+			--end)()
+			if ui_options.DragonOrbs == false then
+				break
+			end
+		end
+	end
+end)
+
  Tab:AddSwitch('Players',function(v)
     if v == true then
         loop4 = game:GetService('RunService').Stepped:Connect(function()
@@ -2385,6 +2416,7 @@ end)
         loop4:Disconnect()
     end
 end)
+
 
 
 		
