@@ -37,6 +37,18 @@ Tycoon:AddToggle("AutoCollect Money", function(state)
         end
     end            
 end)
+Tycoon:AddToggle("Fast Service(Waiters)", function(state)
+    getgenv().waiter = state
+
+    while wait() do
+        if getgenv().waiter then
+            game:GetService("ReplicatedStorage").Events.PathfindTargetReached:FireServer("W0")
+	        game:GetService("ReplicatedStorage").Events.PathfindTargetReached:FireServer("W1")
+	        game:GetService("ReplicatedStorage").Events.PathfindTargetReached:FireServer("C1")
+	        game:GetService("ReplicatedStorage").Events.PathfindTargetReached:FireServer("C2")
+        end
+    end            
+end)
 
 local Misc = library:CreateWindow("--==Misc==--")
 --KeyBind
