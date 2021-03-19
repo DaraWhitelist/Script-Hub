@@ -42,10 +42,24 @@ Tycoon:AddToggle("Fast Service(Waiters)", function(state)
 
     while wait() do
         if getgenv().waiter then
-            game:GetService("ReplicatedStorage").Events.PathfindTargetReached:FireServer("W0")
-	        game:GetService("ReplicatedStorage").Events.PathfindTargetReached:FireServer("W1")
-	        game:GetService("ReplicatedStorage").Events.PathfindTargetReached:FireServer("C1")
-	        game:GetService("ReplicatedStorage").Events.PathfindTargetReached:FireServer("C2")
+            for i,v in pairs(Diner.Items.AlwaysFiltered.NPCs.ClientWorkers:GetChildren()) do
+                if string.match(v.Name,"W") then
+                    game:GetService("ReplicatedStorage").Events.PathfindTargetReached:FireServer(v.Name)
+                end
+            end
+        end
+    end            
+end)
+Tycoon:AddToggle("Fast Service(Chefs Experimental)", function(state)
+    getgenv().chefs = state
+
+    while wait() do
+        if getgenv().chefs then
+            for i,v in pairs(Diner.Items.AlwaysFiltered.NPCs.ClientWorkers:GetChildren()) do
+                if string.match(v.Name,"C") then
+                    game:GetService("ReplicatedStorage").Events.PathfindTargetReached:FireServer(v.Name)
+                end
+            end
         end
     end            
 end)
