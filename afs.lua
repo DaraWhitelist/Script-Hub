@@ -2643,7 +2643,7 @@ end)
         local chakf = tab_z:AddFolder('Chakra')
         for k,v in next,game:GetService("Workspace").MouseIgnore:GetChildren() do
             if  v.Name == 'Chakra' then
-                chakf:AddButton(v.DisplayHolder.Display.Area.Text.." ["..v.DisplayHolder.Display.Requires.Text.."]",function()
+                chakf:AddButton(v:WaitForChild("DisplayHolder").Display.Area.Text.." ["..v.DisplayHolder.Display.Requires.Text.."]",function()
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame + Vector3.new(0,10,0)
                 end)
             end
