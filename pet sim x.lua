@@ -56,7 +56,7 @@ if game.PlaceId == 6284583030 then
                 end
             end
             wait(1)
-            loadstring(game:HttpGet('https://pastebin.com/raw/tGUJRjqb'))()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/Ayisrael19/Script-Hub/master/pet%20sim%20x.lua'))()
         wait(3)
         end
     end
