@@ -2353,8 +2353,38 @@ local train_switch = Tab:AddSwitch('Train',function(v)
 		    end
 end)
 
+Tab:AddSwitch("Train Speed", function(val)
+    ui_options.Speed = val
+        ui_options.Speed = val
+    ui_options.Speed = val
+    if val == true then
+
+        while wait() do
+            require(source).SendToServer("Speed")
+            if ui_options.Speed == false then
+                break
+            end
+        end
+    end
+end)
+
+Tab:AddSwitch("Train Agility", function(val)
+    ui_options.Agility = val
+        ui_options.Agility = val
+    ui_options.Agility = val
+    if val == true then
+
+        while wait() do
+            require(source).SendToServer("Agility")
+            if ui_options.Agility == false then
+                break
+            end
+        end
+    end
+end)	
 		
-		
+
+
 Tab:AddSwitch('Chikara', function(val)
 	ui_options.Chikara = val    
         ui_options.Chikara = val    
