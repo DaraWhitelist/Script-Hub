@@ -1,6 +1,10 @@
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/r0cp9NrM"))(); --UI Library
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local TycoonEvent = ReplicatedStorage.Events.ClientTycoonInput
+--[[Tycoon
+--{
+--name = Clear trash
+model = 6]]
 --functions--
 local function getDiner() 
 	for i,v in pairs(game.Workspace.Tycoons:GetChildren()) do
@@ -9,15 +13,15 @@ local function getDiner()
 		end
 	end
 end
-local Diner = getDiner()
-local function getMoney()
+local Diner = getDiner()  --ClearTrash, CollectBill
+local function getItem(value)
     for i,v in pairs(Diner.Items.OftenFiltered.Surface:GetDescendants()) do
-	    if v:IsA("ObjectValue") and v.Name == "Bill" then
+	    if v:IsA("ObjectValue") then
 		    	print(v)
 			    local args = {
     			    [1] = Diner,
     			    [2] = {
-        			    ["name"] = "CollectBill",
+        			    ["name"] = value,
        		 	    ["model"] = v.Parent
     			    }
 			    }
@@ -28,12 +32,13 @@ end
 
 local Tycoon = library:CreateWindow("Restaurant Tycoon 2")
 Tycoon:AddLabel("Money")
-Tycoon:AddToggle("AutoCollect Money", function(state)
+Tycoon:AddToggle("AutoCollect Money/Plates", function(state)
     getgenv().collect = state
 
     while wait() do
         if getgenv().collect then
-            getMoney()
+            getItem("CollectBill")
+	    getItem("ClearTrash")
         end
     end            
 end)
