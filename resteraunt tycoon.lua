@@ -1,7 +1,6 @@
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/r0cp9NrM"))(); --UI Library
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local TycoonEvent = ReplicatedStorage.Events.ClientTycoonInput
-repeat wait(1) until game:IsLoaded()
 --[[Tycoon
 --{
 --name = Clear trash
