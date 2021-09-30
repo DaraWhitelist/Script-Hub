@@ -1,6 +1,7 @@
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/r0cp9NrM"))(); --UI Library
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local TycoonEvent = ReplicatedStorage.Events.ClientTycoonInput
+reoeat wait(1) until game:IsLoaded()
 --[[Tycoon
 --{
 --name = Clear trash
@@ -15,6 +16,7 @@ local function getDiner()
 end
 local Diner = getDiner()  --ClearTrash, CollectBill
 local function getItem(value)
+    local Diner = getDiner()
     for i,v in pairs(Diner.Items.OftenFiltered.Surface:GetDescendants()) do
 	    if v:IsA("ObjectValue") then
 		    	print(v)
