@@ -11,6 +11,39 @@ local function getDiner()
 	end
     return ""
 end
+local function getCustomer()
+	repeat wait() until tostring(getDiner())=="Tycoon"
+    local tycoon = getDiner()
+    for i,v in pairs(tycoon.Customers:GetChildren()) do
+        if v.Data.SeatedAt.Value == nil then
+            return v.Name
+        end
+    end
+end
+local function getTable()
+	repeat wait() until tostring(getDiner())=="Tycoon"
+    local tycoon = getDiner()
+    for i,v in pairs(tycoon.Items.OftenFiltered.Surface:GetChildren()) do
+        if v.Name == "6" and v.InUse.Value == false then
+            return v
+        end
+    end
+end
+local function autoSeat()
+    repeat wait() until tostring(getDiner())=="Tycoon"
+    local tycoon = getDiner()
+    local args = {
+        [1] = tycoon,
+        [2] = {
+            ["name"] = "SendToTable",
+            ["obj"] = getTable(),
+            ["group"] = getCustomer(), --group 02 might depend on tables
+            ["tycoon"] = tycoon,
+            ["customer"] = "01"
+        }
+    }game:GetService("ReplicatedStorage").Events.ClientTycoonInput:FireServer(unpack(args))
+end
+
 local function getItem(value)
     repeat wait() until tostring(getDiner())=="Tycoon"
     local Diner = getDiner()
@@ -67,7 +100,15 @@ Tycoon:AddToggle("Fast Service(Chefs Experimental)", function(state)
         end
     end            
 end)
+Tycoon:AddToggle("AutoSeat Customers",function(val)
+    getgenv().autoSeat = val 
 
+    while wait() do
+        if getgenv().autoSeat then
+            autoSeat()
+        end
+    end
+end)
 local Misc = library:CreateWindow("--==Misc==--")
 --KeyBind
 Misc:AddKeyBind("Toggle Key",Enum.KeyCode.RightShift, function()
