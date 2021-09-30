@@ -1,20 +1,18 @@
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/r0cp9NrM"))(); --UI Library
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local TycoonEvent = ReplicatedStorage.Events.ClientTycoonInput
---[[Tycoon
---{
---name = Clear trash
-model = 6]]
+repeat wait(1) until game:IsLoaded()
 --functions--
-local function getDiner() 
+local function getDiner()
 	for i,v in pairs(game.Workspace.Tycoons:GetChildren()) do
 		if v.Player.Value == game.Players.LocalPlayer then
 			return v
 		end
 	end
+    return ""
 end
-local Diner = getDiner()  --ClearTrash, CollectBill
 local function getItem(value)
+    repeat wait() until tostring(getDiner())=="Tycoon"
     local Diner = getDiner()
     for i,v in pairs(Diner.Items.OftenFiltered.Surface:GetDescendants()) do
 	    if v:IsA("ObjectValue") then
