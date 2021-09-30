@@ -90,7 +90,8 @@ Tycoon:AddToggle("Fast Service(Waiters)", function(state)
 end)
 Tycoon:AddToggle("Fast Service(Chefs Experimental)", function(state)
     getgenv().chefs = state
-
+        repeat wait() until tostring(getDiner())=="Tycoon"
+    local Diner = getDiner()
     while wait() do
         if getgenv().chefs then
             for i,v in pairs(Diner.Items.AlwaysFiltered.NPCs.ClientWorkers:GetChildren()) do
