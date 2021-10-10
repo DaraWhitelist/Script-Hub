@@ -2447,19 +2447,12 @@ end)
     end
 end)
 
-Tab:AddSwitch("UnConceal TotalPower", function(val)
-	ui_options.Power = val
-		ui_options.Power = val
-	ui_options.Power = val
-	if val == true then
-		while wait() do
-			for i,player in pairs(game.Players:GetChildren()) do
-				if player.Name ~= game.Players.LocalPlayer.Name and ui_options.Power == true then
-					player.Character.HumanoidRootPart.TotalPower.Enabled = true
-				end
-			end	
+Tab:AddButton("UnConceal TotalPower", function()
+	for i,player in pairs(game.Players:GetChildren()) do
+		if player.Name ~= game.Players.LocalPlayer.Name then
+			player.Character.HumanoidRootPart.TotalPower.Enabled = true
 		end
-	end
+	end	
 end)
 
 
