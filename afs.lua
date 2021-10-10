@@ -2447,15 +2447,6 @@ end)
     end
 end)
 
-Tab:AddButton("UnConceal TotalPower", function()
-	for i,player in pairs(game.Players:GetChildren()) do
-		if player.Name ~= game.Players.LocalPlayer.Name then
-			player.Character.HumanoidRootPart.TotalPower.Enabled = true
-		end
-	end	
-end)
-
-
 
 		
 		local noclip_switch = Tab:AddSwitch('Noclip',function(v)
@@ -2485,7 +2476,14 @@ end)
         elseif voo == false then 
             loop99:Disconnect()
 		end
-		end)
+	end)
+	Tab:AddButton("UnConceal TotalPower", function()
+		for i,player in pairs(game.Players:GetChildren()) do
+			if player.Name ~= game.Players.LocalPlayer.Name then
+				player.Character.HumanoidRootPart.TotalPower.Enabled = true
+			end
+		end	
+	end)
 		
 
 
