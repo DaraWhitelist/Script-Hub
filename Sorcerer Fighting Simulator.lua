@@ -1,3 +1,4 @@
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/Ayisrael19/Script-Hub/master/Sorcerer%20Fighting%20Simulator.lua"))();
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/r0cp9NrM"))();
 local player = game:GetService("Players").LocalPlayer
 local hum = player.Character.HumanoidRootPart
