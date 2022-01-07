@@ -1,3 +1,4 @@
+--Last Updated: 01/07/2022 9:52 AM
 local library = loadstring(game:HttpGet("https://pastebin.com/raw/r0cp9NrM"))(); --UI Library
 local ReplicatedStorage = game:GetService("ReplicatedStorage");
 local TycoonEvent = ReplicatedStorage.Events.ClientTycoonInput
@@ -49,7 +50,6 @@ local function getItem(value)
     local Diner = getDiner()
     for i,v in pairs(Diner.Items.OftenFiltered.Surface:GetDescendants()) do
 	    if v:IsA("ObjectValue") then
-		    	print(v)
 			    local args = {
     			    [1] = Diner,
     			    [2] = {
